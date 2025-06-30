@@ -1,0 +1,70 @@
+# Dockerfile para Drupal 10 con LiteSpeed
+FROM litespeedtech/openlitespeed:1.7.19-lsphp83
+
+# Información del mantenedor
+LABEL maintainer="IDT Developer"
+LABEL description="Drupal 10 with OpenLiteSpeed and PHP 8.3"
+
+# Variables de entorno
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PHP_VERSION=83
+ENV DRUPAL_VERSION=10
+
+# Actualizar sistema e instalar dependencias
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    git \
+    unzip \
+    vim \
+    cron \
+    supervisor \
+    mysql-client \
+    && rm -rf /var/lib/apt/lists/*
+
+# Instalar extensiones PHP necesarias para Drupal 10
+RUN /usr/local/lsws/lsphp${PHP_VERSION}/bin/php -v
+
+# Instalar extensiones PHP adicionales para Drupal
+RUN apt-get update && apt-get install -y \
+    lsphp${PHP_VERSION}-mysql \
+    lsphp${PHP_VERSION}-curl \
+    lsphp${PHP_VERSION}-gd \
+    lsphp${PHP_VERSION}-mbstring \
+    lsphp${PHP_VERSION}-xml \
+    lsphp${PHP_VERSION}-zip \
+    lsphp${PHP_VERSION}-opcache \
+    lsphp${PHP_VERSION}-imagick \
+    lsphp${PHP_VERSION}-intl \
+    lsphp${PHP_VERSION}-bcmath \
+    && rm -rf /var/lib/apt/lists/*
+
+# Configurar directorio de trabajo
+WORKDIR /var/www/html
+
+# Instalar Composer
+RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/lsphp${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer
+
+# Configurar PHP
+COPY php.ini /usr/local/lsws/lsphp${PHP_VERSION}/etc/php/${PHP_VERSION}/litespeed/php.ini
+
+# Configurar LiteSpeed
+COPY httpd_config.conf /usr/local/lsws/conf/httpd_config.conf
+COPY vhosts.conf /usr/local/lsws/conf/vhosts/drupal10/vhconf.conf
+
+# Crear directorios necesarios
+RUN mkdir -p /var/www/html/sites/default/files && \
+    mkdir -p /var/www/html/sites/default/files/translations && \
+    chown -R nobody:nogroup /var/www/html && \
+    chmod -R 755 /var/www/html/sites/default/files
+
+# Script de entrada personalizado
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Exponer puerto
+EXPOSE 80 443
+
+# Comando de entrada
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["/usr/local/lsws/bin/lshttpd", "-D"]

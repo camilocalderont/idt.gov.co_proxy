@@ -1,0 +1,14 @@
+{% if header %}
+	<div class="view-header">
+		{{ header }}
+	</div>
+{% endif %}
+<div class="swiper mySwiper--pits">
+    <div class="swiper-wrapper">
+        {% for row in rows %}
+        	{{ row.content }}
+        {% endfor %}
+    </div>
+      <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>

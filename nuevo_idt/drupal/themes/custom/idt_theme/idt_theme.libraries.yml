@@ -1,0 +1,70 @@
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+  js:
+    js/global.js: {}
+    
+pages:
+    css: 
+      theme:
+        css/pages.css: {}
+        
+page-home:
+    js:
+        js/la-entidad.js: {}
+        js/localidades.js: {}
+        
+page-post:
+ css:
+    theme:
+        css/page-post.css: {}
+ js: 
+    js/post/slider_post-gallery.js: {}
+    js/libraries/fslightbox/fslightbox.js: {}
+        
+page-pit:
+    css: 
+      theme:
+        css/page-pit.css: {}
+    js:
+      js/mapa-pit.js: {}
+      
+page-executive:
+    css: 
+      theme:
+        css/page-executive.css: {}
+      
+slider-pits:
+    js: 
+        js/slider-pits.js: {}
+        
+swiper:
+    css:
+      theme:
+        https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css: { weight: 10 }
+    js:
+      https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js: 
+        weight: -1
+        type: external
+
+aos:
+  version: 2.3.1
+  css:
+    theme:
+      # URL del CDN para el CSS
+      https://unpkg.com/aos@2.3.1/dist/aos.css: {weight: 10 }
+  js:
+    # URL del CDN para el JS
+    https://unpkg.com/aos@2.3.1/dist/aos.js:
+      type: external
+
+accordion-js:
+    css:
+      theme:
+        https://unpkg.com/accordion-js@3.4.0/dist/accordion.min.css: { weight: 10 }
+    js:
+      https://unpkg.com/accordion-js@3.4.0/dist/accordion.min.js: 
+        type: external      
+      
+

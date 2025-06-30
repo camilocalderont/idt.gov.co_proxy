@@ -1,0 +1,4 @@
+services:
+  prevnext.service:
+    class: Drupal\prevnext\PrevNextService
+    arguments: ["@entity_type.manager"]

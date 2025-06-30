@@ -1,0 +1,132 @@
+h1{
+    font-size: clamp(30px, 3vw, 45px);
+    font-weight: 800;
+    max-width: 100%;
+}
+h1, h2{
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 3px;
+        background-color: var(--color-primary);
+        top: -10px;
+    }
+}
+
+.node-id-1661, .node-id-1662 {
+    & .node__content .margin-top-bottom-60{
+        margin-bottom: 0px;
+    }
+}
+
+.node-id-1662 .buttons{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 90px;
+}
+
+/* Transparencia e Información */
+
+#block-idt-theme-acordeontransparenciayaccesoalainformacion {
+    padding-bottom: 60px;
+    & h2{
+        margin-bottom: 40px;
+    }
+}
+
+/* La entidad  */
+
+
+.mission-vision {
+    display: flex;
+    gap: 20px;
+    & .mission-vision__item {
+        flex: 1;
+        background-color: var(--color-primary);
+        padding: 20px;
+        color: #fff;
+        &.mission-vision__item--vision {
+            background-color: var(--color-secondary);
+            color: #000;
+        }
+        
+        & h2::before{
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 767px){
+    .mission-vision {
+        flex-direction: column;
+    }
+}
+
+
+/* Leyes */
+
+.view-leyes{
+    & td:nth-child(2) {
+        width: 60%;
+    }
+}
+
+.view-directivos-page{
+    & .grid--default {
+        & .grid--default__item {
+            box-shadow: none;
+            text-align: center;
+            border: 1px solid var(--color-gray);
+            padding: 2rem 1rem;
+            border-radius: 10px;
+            &:hover{
+                    background-color: var(--color-light-gray);
+                }
+            &:first-child{
+                border-color: var(--color-link);
+            }
+            & img {
+                width: auto;
+                max-height: auto;
+                object-fit: auto;
+            }
+            
+            & .grid__item__content {
+                padding: 20px 0 0 0;
+                & h3 {
+                    margin: 0;
+                    &::before {
+                    display:none;
+                    }
+                }
+                
+                & p{
+                    color: rgb(107, 107, 107);
+                    padding: 0px;
+                    margin: 0px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    .view-directivos-page{
+        & .grid--default {
+            & .grid--default__item {
+                &:first-child {
+                    & > a {
+                        & img {
+                            width: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

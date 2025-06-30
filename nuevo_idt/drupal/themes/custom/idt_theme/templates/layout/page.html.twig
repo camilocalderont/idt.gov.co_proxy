@@ -1,0 +1,79 @@
+<div class="header">
+    {{page.header_top}}
+	<div class="bottom">
+		<div class="container">
+			<div class="logos">
+				<a href="/"><img src="/{{ directory }}/images/idt_a.png" width="120" alt="IDT"></a>
+			</div>
+			{{page.header}}
+		</div>
+	</div>
+</div>
+<dialog id="of__mms" class="off-canvas__menu-mobile-and-search">
+    <div class="of__mms__content">
+        <div class="swiper slide__of__mms">
+            <div class="swiper-wrapper">
+                <div data-history="buscar" class="swiper-slide">
+                    <div class="slide__of__mms__content">
+                        <div class="slide__of__mms__content__header">
+                            <span class="idt-icon header__close-menu-off-canvas">
+                                {{ drupal_entity('block', 'idt_theme_iconoclose') }}
+                            </span>
+                            <span class="idt-icon slide__of__mms__next">
+                                Menú {{ drupal_entity('block', 'idt_theme_iconochevronright') }}
+                            </span>
+                        </div>
+                        <div class="slide__of__mms__content__body">
+                            {{ drupal_block('views_exposed_filter_block:busqueda-page_search', wrapper=false) }}
+                        </div>
+                    </div>
+                </div>
+                <div data-history="menu" class="swiper-slide">
+                    <div class="slide__of__mms__content">
+                        <div class="slide__of__mms__content__header">
+                            <span class="idt-icon slide__of__mms__prev">
+                                {{ drupal_entity('block', 'idt_theme_iconochevronleft') }} Buscar
+                            </span>
+                            <span class="idt-icon header__close-menu-off-canvas">
+                                {{ drupal_entity('block', 'idt_theme_iconoclose') }}
+                            </span>
+                        </div>
+                         <div class="slide__of__mms__content__body">
+                            {{ drupal_menu('menu-principal---mobile', expand=true) }}
+                        </div>
+                        <div class="slide__of__mms__content__footer">
+                            <a href="https://observatorio.idt.gov.co/" target="_blank">
+                                Observatorio 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </a>
+                            <a href="https://visitbogota.co/es" target="_blank">
+                                Visit Bogotá
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</dialog>
+{% if page.sidebar %}
+  <aside class="sidebar">
+    {{ page.sidebar }}
+  </aside>
+{% endif %}
+<div class="content page-{{ clean_class }} node-id-{{ node.id }}">
+	{{page.content}}
+</div>
+<div class="footer_redes">
+	{{page.footer_top}}
+</div>
+<div class="footer">
+	<div class="container">
+		{{page.footer_left}}
+		{{page.footer_center}}
+		{{page.footer_right}}
+	</div>
+    <a href="/" class="logo_footer"><img src="/{{ directory }}/images/footer_logo.png" alt="IDT"></a>
+	{{ page.footer_bottom }}
+</div>

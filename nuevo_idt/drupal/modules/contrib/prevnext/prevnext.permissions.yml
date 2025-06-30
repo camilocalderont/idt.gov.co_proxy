@@ -1,0 +1,9 @@
+administer prevnext:
+  title: 'Administer the PrevNext module'
+  description: 'Administer the settings for the PrevNext module.'
+  restrict access: TRUE
+view prevnext links:
+  title: 'View Any PrevNext links'
+
+permission_callbacks:
+  - Drupal\prevnext\PrevNextPermissions::permissions

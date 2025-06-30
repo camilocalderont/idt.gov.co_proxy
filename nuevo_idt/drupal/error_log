@@ -1,0 +1,537 @@
+[09-Dec-2024 20:43:12 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_block" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/layout/page.html.twig line 54
+[09-Dec-2024 21:51:39 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected "}" in "__string_template__ade99c62c41b60f7448f635cfd3128b4" at line 2." at /home/idtcs360/public_html/vendor/twig/twig/src/Lexer.php line 364
+[09-Dec-2024 21:54:18 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected "}" in "__string_template__ade99c62c41b60f7448f635cfd3128b4" at line 2." at /home/idtcs360/public_html/vendor/twig/twig/src/Lexer.php line 364
+[09-Dec-2024 21:55:09 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected "}" in "__string_template__ade99c62c41b60f7448f635cfd3128b4" at line 2." at /home/idtcs360/public_html/vendor/twig/twig/src/Lexer.php line 364
+[09-Dec-2024 21:55:16 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected "}" in "__string_template__ade99c62c41b60f7448f635cfd3128b4" at line 2." at /home/idtcs360/public_html/vendor/twig/twig/src/Lexer.php line 364
+[09-Dec-2024 21:55:51 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected "}" in "__string_template__ade99c62c41b60f7448f635cfd3128b4" at line 2." at /home/idtcs360/public_html/vendor/twig/twig/src/Lexer.php line 364
+[09-Dec-2024 21:56:39 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected "}" in "__string_template__ade99c62c41b60f7448f635cfd3128b4" at line 2." at /home/idtcs360/public_html/vendor/twig/twig/src/Lexer.php line 364
+[09-Dec-2024 21:57:03 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected "}" in "__string_template__ade99c62c41b60f7448f635cfd3128b4" at line 2." at /home/idtcs360/public_html/vendor/twig/twig/src/Lexer.php line 364
+[09-Dec-2024 21:57:05 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected "}" in "__string_template__ade99c62c41b60f7448f635cfd3128b4" at line 2." at /home/idtcs360/public_html/vendor/twig/twig/src/Lexer.php line 364
+[09-Dec-2024 21:57:16 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 446464 bytes) in /home/idtcs360/public_html/core/lib/Drupal/Core/Render/Renderer.php on line 504
+[09-Dec-2024 21:57:23 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 425984 bytes) in /home/idtcs360/public_html/core/lib/Drupal/Core/Render/Renderer.php on line 504
+[09-Dec-2024 21:57:41 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8192 bytes) in /home/idtcs360/public_html/modules/slick/templates/slick.theme.inc on line 139
+[09-Dec-2024 21:57:41 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 32768 bytes) in /home/idtcs360/public_html/core/modules/mysql/src/Driver/Database/mysql/Merge.php on line 1
+[09-Dec-2024 21:57:41 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 32768 bytes) in /home/idtcs360/public_html/core/lib/Drupal/Core/Utility/Error.php on line 1
+[09-Dec-2024 21:57:48 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8192 bytes) in /home/idtcs360/public_html/modules/slick/templates/slick.theme.inc on line 139
+[09-Dec-2024 21:57:48 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[09-Dec-2024 21:57:48 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php on line 86
+[09-Dec-2024 21:57:48 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /home/idtcs360/public_html/core/includes/errors.inc on line 26
+[09-Dec-2024 21:57:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8192 bytes) in /home/idtcs360/public_html/modules/slick/templates/slick.theme.inc on line 139
+[09-Dec-2024 21:57:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 32768 bytes) in /home/idtcs360/public_html/core/modules/mysql/src/Driver/Database/mysql/Merge.php on line 1
+[09-Dec-2024 21:57:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 32768 bytes) in /home/idtcs360/public_html/core/lib/Drupal/Core/Utility/Error.php on line 1
+[09-Dec-2024 21:57:56 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8192 bytes) in /home/idtcs360/public_html/modules/slick/templates/slick.theme.inc on line 139
+[09-Dec-2024 21:57:56 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 32768 bytes) in /home/idtcs360/public_html/core/modules/mysql/src/Driver/Database/mysql/Merge.php on line 1
+[09-Dec-2024 21:57:56 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 32768 bytes) in /home/idtcs360/public_html/core/lib/Drupal/Core/Utility/Error.php on line 1
+[09-Dec-2024 21:57:58 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /home/idtcs360/public_html/modules/blazy/src/BlazyDefault.php on line 128
+[09-Dec-2024 21:58:05 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /home/idtcs360/public_html/modules/blazy/src/BlazyDefault.php on line 314
+[09-Dec-2024 21:58:17 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8192 bytes) in /home/idtcs360/public_html/modules/slick/templates/slick.theme.inc on line 139
+[09-Dec-2024 21:58:17 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 32768 bytes) in /home/idtcs360/public_html/core/modules/mysql/src/Driver/Database/mysql/Merge.php on line 1
+[09-Dec-2024 21:58:17 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 32768 bytes) in /home/idtcs360/public_html/core/lib/Drupal/Core/Utility/Error.php on line 1
+[09-Dec-2024 21:58:22 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 434176 bytes) in /home/idtcs360/public_html/core/lib/Drupal/Core/Render/Renderer.php on line 504
+[09-Dec-2024 21:58:25 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 401408 bytes) in /home/idtcs360/public_html/core/lib/Drupal/Core/Render/Renderer.php on line 504
+[09-Dec-2024 21:58:30 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 421888 bytes) in /home/idtcs360/public_html/core/lib/Drupal/Core/Render/Renderer.php on line 504
+[09-Dec-2024 21:58:33 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 409600 bytes) in /home/idtcs360/public_html/core/lib/Drupal/Core/Render/Renderer.php on line 504
+[09-Dec-2024 21:58:35 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8192 bytes) in /home/idtcs360/public_html/modules/slick/templates/slick.theme.inc on line 139
+[09-Dec-2024 21:59:06 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 434176 bytes) in /home/idtcs360/public_html/core/lib/Drupal/Core/Render/Renderer.php on line 504
+[09-Dec-2024 21:59:20 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 409600 bytes) in /home/idtcs360/public_html/core/lib/Drupal/Core/Render/Renderer.php on line 504
+[09-Dec-2024 22:42:37 UTC] Uncaught PHP Exception Twig\Error\LoaderError: "Template "themes/custom/idt_theme/templates/views/views-view--noticias--novedades.html.twig" is not defined." at core/themes/claro/templates/classy/block/block.html.twig line 43
+[09-Dec-2024 22:42:40 UTC] Uncaught PHP Exception Twig\Error\LoaderError: "Template "themes/custom/idt_theme/templates/views/views-view--noticias--novedades.html.twig" is not defined." at core/themes/claro/templates/classy/block/block.html.twig line 43
+[09-Dec-2024 23:18:29 UTC] Uncaught PHP Exception Twig\Error\LoaderError: "Template "themes/custom/idt_theme/templates/views/views-view--noticias_destacadas_home.html.twig" is not defined." at core/themes/claro/templates/classy/block/block.html.twig line 43
+[10-Dec-2024 08:08:02 UTC] PHP Fatal error:  Cannot redeclare blazy() (previously declared in /home/idtcs360/public_html/modules/blazy/blazy.module:23) in /home/idtcs360/public_html/modules/contrib/blazy/blazy.module on line 23
+[11-Dec-2024 20:00:13 UTC] Drupal\Core\Database\DatabaseExceptionWrapper: SQLSTATE[HY000]: General error: 2014 Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute.: SELECT 1 AS "expression"
+FROM
+"uunn_sessions" "sessions"
+WHERE "sid" = :db_condition_placeholder_0; Array
+(
+    [:db_condition_placeholder_0] => H-KRwd9Cm4pARP1uuIUDGHApeckexVO93HuR_-6Cgks
+)
+ in /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php on line 95 #0 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Connection.php(883): Drupal\mysql\Driver\Database\mysql\ExceptionHandler->handleExecutionException()
+#1 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Select.php(524): Drupal\Core\Database\Connection->query()
+#2 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Merge.php(379): Drupal\Core\Database\Query\Select->execute()
+#3 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(95): Drupal\Core\Database\Query\Merge->execute()
+#4 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(109): Drupal\Core\Session\SessionHandler->Drupal\Core\Session\{closure}()
+#5 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/WriteSafeSessionHandler.php(95): Drupal\Core\Session\SessionHandler->write()
+#6 /home/idtcs360/public_html/vendor/symfony/http-foundation/Session/Storage/Proxy/SessionHandlerProxy.php(54): Drupal\Core\Session\WriteSafeSessionHandler->write()
+#7 [internal function]: Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy->write()
+#8 [internal function]: session_write_close()
+#9 {main}
+[11-Dec-2024 20:17:10 UTC] Uncaught PHP Exception InvalidArgumentException: "$string ("Array") must be a string." at /home/idtcs360/public_html/core/lib/Drupal/Core/StringTranslation/TranslatableMarkup.php line 132
+[25-Jan-2025 17:34:38 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_block" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--article--full.html.twig line 94
+[25-Jan-2025 17:35:20 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected "}"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--article--full.html.twig line 94
+[25-Jan-2025 17:35:43 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_block" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--article--full.html.twig line 94
+[27-Jan-2025 15:58:47 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "end of statement block" of value ""." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 105
+[27-Jan-2025 15:58:50 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "end of statement block" of value ""." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 105
+[27-Jan-2025 15:59:02 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "name" of value "if" ("end of statement block" expected)." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 105
+[27-Jan-2025 16:12:14 UTC] Uncaught PHP Exception Error: "Class "Url" not found" at /home/idtcs360/public_html/themes/custom/idt_theme/idt_theme.theme line 5
+[27-Jan-2025 16:12:44 UTC] Uncaught PHP Exception Error: "Class "Url" not found" at /home/idtcs360/public_html/themes/custom/idt_theme/idt_theme.theme line 5
+[27-Jan-2025 16:36:44 UTC] Uncaught PHP Exception Twig\Error\LoaderError: "Template "themes/custom/idt_theme/templates/layout/page--front.html.twig" is not defined." at /home/idtcs360/public_html/core/themes/claro/templates/classy/layout/html.html.twig line 51
+[27-Jan-2025 16:46:02 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected character ";"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 78
+[27-Jan-2025 16:46:08 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected character ";"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 78
+[27-Jan-2025 16:46:28 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected character ";"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 78
+[27-Jan-2025 16:46:29 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected character ";"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 78
+[27-Jan-2025 16:46:53 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected character ";"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 78
+[27-Jan-2025 16:46:56 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected character ";"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 78
+[27-Jan-2025 21:12:47 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "var_dump" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 104
+[27-Jan-2025 21:28:51 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "bool" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 105
+[27-Jan-2025 21:28:53 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "bool" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 105
+[27-Jan-2025 21:30:33 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "bool" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 105
+[27-Jan-2025 21:30:36 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "bool" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 105
+[27-Jan-2025 21:30:53 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "bool" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 105
+[28-Jan-2025 00:06:41 UTC] Uncaught PHP Exception InvalidArgumentException: "Field field_banner_page is unknown." at /home/idtcs360/public_html/core/lib/Drupal/Core/Entity/ContentEntityBase.php line 616
+[28-Jan-2025 00:06:51 UTC] Uncaught PHP Exception InvalidArgumentException: "Field field_banner_page is unknown." at /home/idtcs360/public_html/core/lib/Drupal/Core/Entity/ContentEntityBase.php line 616
+[28-Jan-2025 00:06:52 UTC] Uncaught PHP Exception InvalidArgumentException: "Field field_banner_page is unknown." at /home/idtcs360/public_html/core/lib/Drupal/Core/Entity/ContentEntityBase.php line 616
+[28-Jan-2025 00:06:56 UTC] Uncaught PHP Exception InvalidArgumentException: "Field field_banner_page is unknown." at /home/idtcs360/public_html/core/lib/Drupal/Core/Entity/ContentEntityBase.php line 616
+[28-Jan-2025 00:07:00 UTC] Uncaught PHP Exception InvalidArgumentException: "Field field_banner_page is unknown." at /home/idtcs360/public_html/core/lib/Drupal/Core/Entity/ContentEntityBase.php line 616
+[28-Jan-2025 00:30:00 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_view" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1661--full.html.twig line 122
+[28-Jan-2025 00:33:14 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_view_result" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1661--full.html.twig line 122
+[28-Jan-2025 00:33:17 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_view_result" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1661--full.html.twig line 122
+[28-Jan-2025 00:33:19 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_view_result" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1661--full.html.twig line 122
+[28-Jan-2025 00:34:33 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_view" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1661--full.html.twig line 125
+[28-Jan-2025 00:35:14 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_view" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1661--full.html.twig line 125
+[28-Jan-2025 00:36:25 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_view" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1661--full.html.twig line 125
+[28-Jan-2025 00:46:02 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_view" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1661--full.html.twig line 125
+[28-Jan-2025 00:47:32 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_block" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1661--full.html.twig line 126
+[28-Jan-2025 00:48:53 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_entity" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1661--full.html.twig line 127
+[28-Jan-2025 00:49:56 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_entity" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1661--full.html.twig line 128
+[17-Feb-2025 19:27:43 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "name" of value "class" ("end of print statement" expected)." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--pit--full.html.twig line 79
+[17-Feb-2025 20:10:44 UTC] Drupal\Core\Database\DatabaseExceptionWrapper: SQLSTATE[HY000]: General error: 2014 Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute.: SELECT 1 AS "expression"
+FROM
+"uunn_sessions" "sessions"
+WHERE "sid" = :db_condition_placeholder_0; Array
+(
+    [:db_condition_placeholder_0] => mdploZR0bUecagM-tk0lWdLu-z7uaMsTZ_cVvHdPysQ
+)
+ in /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php on line 95 #0 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Connection.php(883): Drupal\mysql\Driver\Database\mysql\ExceptionHandler->handleExecutionException()
+#1 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Select.php(524): Drupal\Core\Database\Connection->query()
+#2 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Merge.php(379): Drupal\Core\Database\Query\Select->execute()
+#3 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(95): Drupal\Core\Database\Query\Merge->execute()
+#4 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(109): Drupal\Core\Session\SessionHandler->Drupal\Core\Session\{closure}()
+#5 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/WriteSafeSessionHandler.php(95): Drupal\Core\Session\SessionHandler->write()
+#6 /home/idtcs360/public_html/vendor/symfony/http-foundation/Session/Storage/Proxy/SessionHandlerProxy.php(54): Drupal\Core\Session\WriteSafeSessionHandler->write()
+#7 [internal function]: Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy->write()
+#8 [internal function]: session_write_close()
+#9 {main}
+[17-Feb-2025 20:12:37 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "end of statement block" of value ""." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--pit--full.html.twig line 110
+[17-Feb-2025 20:18:18 UTC] Uncaught PHP Exception ParseError: "syntax error, unexpected variable "$is_mobile"" at /home/idtcs360/public_html/themes/custom/idt_theme/idt_theme.theme line 39
+[17-Feb-2025 20:18:26 UTC] Uncaught PHP Exception ParseError: "syntax error, unexpected variable "$is_mobile"" at /home/idtcs360/public_html/themes/custom/idt_theme/idt_theme.theme line 39
+[17-Feb-2025 20:19:38 UTC] Uncaught PHP Exception ParseError: "syntax error, unexpected variable "$is_mobile"" at /home/idtcs360/public_html/themes/custom/idt_theme/idt_theme.theme line 39
+[17-Feb-2025 20:19:39 UTC] Uncaught PHP Exception ParseError: "syntax error, unexpected variable "$is_mobile"" at /home/idtcs360/public_html/themes/custom/idt_theme/idt_theme.theme line 39
+[17-Feb-2025 20:19:40 UTC] Uncaught PHP Exception ParseError: "syntax error, unexpected variable "$is_mobile"" at /home/idtcs360/public_html/themes/custom/idt_theme/idt_theme.theme line 39
+[17-Feb-2025 20:23:56 UTC] Drupal\Core\Database\DatabaseExceptionWrapper: SQLSTATE[HY000]: General error: 2014 Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute.: SELECT 1 AS "expression"
+FROM
+"uunn_sessions" "sessions"
+WHERE "sid" = :db_condition_placeholder_0; Array
+(
+    [:db_condition_placeholder_0] => mdploZR0bUecagM-tk0lWdLu-z7uaMsTZ_cVvHdPysQ
+)
+ in /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php on line 95 #0 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Connection.php(883): Drupal\mysql\Driver\Database\mysql\ExceptionHandler->handleExecutionException()
+#1 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Select.php(524): Drupal\Core\Database\Connection->query()
+#2 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Merge.php(379): Drupal\Core\Database\Query\Select->execute()
+#3 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(95): Drupal\Core\Database\Query\Merge->execute()
+#4 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(109): Drupal\Core\Session\SessionHandler->Drupal\Core\Session\{closure}()
+#5 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/WriteSafeSessionHandler.php(95): Drupal\Core\Session\SessionHandler->write()
+#6 /home/idtcs360/public_html/vendor/symfony/http-foundation/Session/Storage/Proxy/SessionHandlerProxy.php(54): Drupal\Core\Session\WriteSafeSessionHandler->write()
+#7 [internal function]: Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy->write()
+#8 [internal function]: session_write_close()
+#9 {main}
+[17-Feb-2025 20:36:04 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected character "&"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--pit--full.html.twig line 102
+[17-Feb-2025 20:36:15 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected character "&"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--pit--full.html.twig line 102
+[15-Mar-2025 16:49:43 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "punctuation" of value ","." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--pit--full.html.twig line 100
+[19-Mar-2025 16:52:05 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "punctuation" of value "{" ("end of print statement" expected)." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/block/block--block-content--type--basic.html.twig line 47
+[19-Mar-2025 16:55:14 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "A mapping key must be a quoted string, a number, a name, or an expression enclosed in parentheses (unexpected token "punctuation" of value "{"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/block/block--block-content--type--basic.html.twig line 39
+[19-Mar-2025 16:57:05 UTC] Uncaught PHP Exception Error: "Object of class Drupal\block_content\Entity\BlockContent could not be converted to string" at /home/idtcs360/public_html/core/lib/Drupal/Core/Template/AttributeArray.php line 77
+[19-Mar-2025 16:57:09 UTC] Uncaught PHP Exception Error: "Object of class Drupal\block_content\Entity\BlockContent could not be converted to string" at /home/idtcs360/public_html/core/lib/Drupal/Core/Template/AttributeArray.php line 77
+[19-Mar-2025 16:59:40 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "A mapping key must be a quoted string, a number, a name, or an expression enclosed in parentheses (unexpected token "punctuation" of value "{"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/block/block--block-content--type--basic.html.twig line 37
+[19-Mar-2025 17:00:09 UTC] Uncaught PHP Exception Error: "Object of class Drupal\block_content\Entity\BlockContent could not be converted to string" at /home/idtcs360/public_html/core/lib/Drupal/Core/Template/AttributeArray.php line 77
+[19-Mar-2025 17:03:18 UTC] Uncaught PHP Exception Error: "Object of class Drupal\block_content\Entity\BlockContent could not be converted to string" at /home/idtcs360/public_html/core/lib/Drupal/Core/Template/AttributeArray.php line 77
+[19-Mar-2025 17:03:25 UTC] Uncaught PHP Exception Error: "Object of class Drupal\block_content\Entity\BlockContent could not be converted to string" at /home/idtcs360/public_html/core/lib/Drupal/Core/Template/AttributeArray.php line 77
+[19-Mar-2025 17:03:46 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "A mapping key must be a quoted string, a number, a name, or an expression enclosed in parentheses (unexpected token "punctuation" of value "{"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/block/block--block-content--type--basic.html.twig line 39
+[19-Mar-2025 17:13:20 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "clean_en" filter. Did you mean "clean_id"?" at /home/idtcs360/public_html/themes/custom/idt_theme/templates/block/block--block-content--type--basic.html.twig line 47
+[19-Mar-2025 17:14:40 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "field_value" filter." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/block/block--block-content--type--basic.html.twig line 47
+[19-Mar-2025 17:17:46 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "A mapping key must be a quoted string, a number, a name, or an expression enclosed in parentheses (unexpected token "punctuation" of value "{"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/block/block--block-content--type--basic.html.twig line 37
+[19-Mar-2025 17:18:36 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unclosed "("." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/block/block--block-content--type--basic.html.twig line 39
+[19-Mar-2025 17:22:48 UTC] Uncaught PHP Exception InvalidArgumentException: ""value" is an invalid render array key. Value should be an array but got a string." at /home/idtcs360/public_html/core/lib/Drupal/Core/Render/Element.php line 97
+[19-Mar-2025 17:23:01 UTC] Uncaught PHP Exception InvalidArgumentException: ""value" is an invalid render array key. Value should be an array but got a string." at /home/idtcs360/public_html/core/lib/Drupal/Core/Render/Element.php line 97
+[19-Mar-2025 17:32:04 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "kint" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/block/block--block-content--type--basic.html.twig line 49
+[21-Mar-2025 14:02:15 UTC] Uncaught PHP Exception Twig\Error\LoaderError: "Template "themes/custom/idt_theme/templates/content/node--1661--full.html.twig" is not defined." at /home/idtcs360/public_html/vendor/twig/twig/src/Loader/ChainLoader.php line 111
+[21-Mar-2025 14:24:35 UTC] Uncaught PHP Exception Twig\Error\LoaderError: "Template "themes/custom/idt_theme/templates/layout/page--front.html.twig" is not defined." at /home/idtcs360/public_html/core/themes/claro/templates/classy/layout/html.html.twig line 51
+[21-Mar-2025 14:44:52 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "end of statement block" of value ""." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 128
+[21-Mar-2025 14:44:57 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "end of statement block" of value ""." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 128
+[21-Mar-2025 14:45:12 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "end of statement block" of value ""." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 128
+[21-Mar-2025 14:45:34 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "end of statement block" of value ""." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 128
+[21-Mar-2025 14:46:29 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "end of statement block" of value ""." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 128
+[21-Mar-2025 14:46:30 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "end of statement block" of value ""." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 128
+[21-Mar-2025 14:46:31 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "end of statement block" of value ""." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 128
+[21-Mar-2025 14:47:32 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected "}"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 130
+[21-Mar-2025 14:47:33 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected "}"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 130
+[21-Mar-2025 14:48:57 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected "}"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--page--full.html.twig line 127
+[26-Mar-2025 21:43:16 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_view" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1663--full.html.twig line 131
+[26-Mar-2025 21:48:53 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_view" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1663--full.html.twig line 131
+[26-Mar-2025 21:50:44 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_view" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1663--full.html.twig line 131
+[26-Mar-2025 21:52:13 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_view" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1663--full.html.twig line 131
+[26-Mar-2025 21:52:22 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_view" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1663--full.html.twig line 131
+[26-Mar-2025 21:52:32 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_view" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1663--full.html.twig line 131
+[26-Mar-2025 21:53:53 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_block" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1663--full.html.twig line 131
+[26-Mar-2025 21:54:44 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_block" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1663--full.html.twig line 131
+[26-Mar-2025 21:54:45 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "drupal_block" function." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--1663--full.html.twig line 131
+[27-Mar-2025 17:18:13 UTC] Drupal\Core\Database\DatabaseExceptionWrapper: SQLSTATE[HY000]: General error: 2014 Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute.: SELECT 1 AS "expression"
+FROM
+"uunn_sessions" "sessions"
+WHERE "sid" = :db_condition_placeholder_0; Array
+(
+    [:db_condition_placeholder_0] => HR6uFFApYC8qqiX6xQRvpLVQZY8mRZfSBff9ZbWqpYI
+)
+ in /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php on line 95 #0 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Connection.php(883): Drupal\mysql\Driver\Database\mysql\ExceptionHandler->handleExecutionException()
+#1 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Select.php(524): Drupal\Core\Database\Connection->query()
+#2 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Merge.php(379): Drupal\Core\Database\Query\Select->execute()
+#3 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(95): Drupal\Core\Database\Query\Merge->execute()
+#4 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(109): Drupal\Core\Session\SessionHandler->Drupal\Core\Session\{closure}()
+#5 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/WriteSafeSessionHandler.php(95): Drupal\Core\Session\SessionHandler->write()
+#6 /home/idtcs360/public_html/vendor/symfony/http-foundation/Session/Storage/Proxy/SessionHandlerProxy.php(54): Drupal\Core\Session\WriteSafeSessionHandler->write()
+#7 [internal function]: Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy->write()
+#8 [internal function]: session_write_close()
+#9 {main}
+[01-Apr-2025 16:17:37 UTC] Uncaught PHP Exception Drupal\search_api\SearchApiException: "SQLSTATE[42S02]: Base table or view not found: 1146 Table 'idtcs360_bddrpl.uunn_search_api_db_sitio_title' doesn't exist: TRUNCATE "uunn_search_api_db_sitio_title"; Array
+(
+)
+" at /home/idtcs360/public_html/modules/contrib/search_api/modules/search_api_db/src/Plugin/search_api/backend/Database.php line 1203
+[01-Apr-2025 19:38:04 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected character "'"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/layout/page.html.twig line 14
+[01-Apr-2025 20:30:24 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::drupalBlock(): Argument #2 ($configuration) must be of type array, int given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 73" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 149
+[01-Apr-2025 20:30:36 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::drupalBlock(): Argument #2 ($configuration) must be of type array, string given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 73" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 149
+[01-Apr-2025 20:31:53 UTC] Uncaught PHP Exception Drupal\Component\Plugin\Exception\PluginNotFoundException: "The "inline_block:basic" entity type does not exist." at /home/idtcs360/public_html/core/lib/Drupal/Core/Entity/EntityTypeManager.php line 142
+[01-Apr-2025 20:33:02 UTC] Uncaught PHP Exception Drupal\Component\Plugin\Exception\PluginNotFoundException: "The "inline_block:basic" entity type does not exist." at /home/idtcs360/public_html/core/lib/Drupal/Core/Entity/EntityTypeManager.php line 142
+[01-Apr-2025 20:37:55 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected ")"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/layout/page.html.twig line 19
+[01-Apr-2025 20:38:30 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unclosed "("." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/layout/page.html.twig line 19
+[01-Apr-2025 20:38:44 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected ")"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/layout/page.html.twig line 19
+[01-Apr-2025 20:39:03 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown argument "wrapper" for function "drupal_entity(entity_type, selector, view_mode, langcode, check_access)"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/layout/page.html.twig line 19
+[03-Apr-2025 22:30:04 UTC] Drupal\Core\Database\DatabaseExceptionWrapper: SQLSTATE[HY000]: General error: 2014 Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute.: SELECT 1 AS "expression"
+FROM
+"uunn_sessions" "sessions"
+WHERE "sid" = :db_condition_placeholder_0; Array
+(
+    [:db_condition_placeholder_0] => esvtbZAseUOOXRyYQbb4OYgkN-VrOGGLqkT7E2ctNmQ
+)
+ in /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php on line 95 #0 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Connection.php(883): Drupal\mysql\Driver\Database\mysql\ExceptionHandler->handleExecutionException()
+#1 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Select.php(524): Drupal\Core\Database\Connection->query()
+#2 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Merge.php(379): Drupal\Core\Database\Query\Select->execute()
+#3 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(95): Drupal\Core\Database\Query\Merge->execute()
+#4 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(109): Drupal\Core\Session\SessionHandler->Drupal\Core\Session\{closure}()
+#5 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/WriteSafeSessionHandler.php(95): Drupal\Core\Session\SessionHandler->write()
+#6 /home/idtcs360/public_html/vendor/symfony/http-foundation/Session/Storage/Proxy/SessionHandlerProxy.php(54): Drupal\Core\Session\WriteSafeSessionHandler->write()
+#7 [internal function]: Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy->write()
+#8 [internal function]: session_write_close()
+#9 {main}
+[09-Apr-2025 12:31:42 UTC] Drupal\Core\Database\DatabaseExceptionWrapper: SQLSTATE[HY000]: General error: 2014 Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute.: SELECT 1 AS "expression"
+FROM
+"uunn_sessions" "sessions"
+WHERE "sid" = :db_condition_placeholder_0; Array
+(
+    [:db_condition_placeholder_0] => X0ALChtBoQRNue4g168XrR52kPlEDV_TTrnYN_NJJdg
+)
+ in /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php on line 95 #0 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Connection.php(883): Drupal\mysql\Driver\Database\mysql\ExceptionHandler->handleExecutionException()
+#1 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Select.php(524): Drupal\Core\Database\Connection->query()
+#2 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Merge.php(379): Drupal\Core\Database\Query\Select->execute()
+#3 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(95): Drupal\Core\Database\Query\Merge->execute()
+#4 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(109): Drupal\Core\Session\SessionHandler->Drupal\Core\Session\{closure}()
+#5 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/WriteSafeSessionHandler.php(95): Drupal\Core\Session\SessionHandler->write()
+#6 /home/idtcs360/public_html/vendor/symfony/http-foundation/Session/Storage/Proxy/SessionHandlerProxy.php(54): Drupal\Core\Session\WriteSafeSessionHandler->write()
+#7 [internal function]: Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy->write()
+#8 [internal function]: session_write_close()
+#9 {main}
+[11-Apr-2025 13:09:41 UTC] Drupal\Core\Database\DatabaseExceptionWrapper: SQLSTATE[HY000]: General error: 2014 Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute.: SELECT 1 AS "expression"
+FROM
+"uunn_sessions" "sessions"
+WHERE "sid" = :db_condition_placeholder_0; Array
+(
+    [:db_condition_placeholder_0] => X0ALChtBoQRNue4g168XrR52kPlEDV_TTrnYN_NJJdg
+)
+ in /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php on line 95 #0 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Connection.php(883): Drupal\mysql\Driver\Database\mysql\ExceptionHandler->handleExecutionException()
+#1 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Select.php(524): Drupal\Core\Database\Connection->query()
+#2 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Merge.php(379): Drupal\Core\Database\Query\Select->execute()
+#3 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(95): Drupal\Core\Database\Query\Merge->execute()
+#4 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(109): Drupal\Core\Session\SessionHandler->Drupal\Core\Session\{closure}()
+#5 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/WriteSafeSessionHandler.php(95): Drupal\Core\Session\SessionHandler->write()
+#6 /home/idtcs360/public_html/vendor/symfony/http-foundation/Session/Storage/Proxy/SessionHandlerProxy.php(54): Drupal\Core\Session\WriteSafeSessionHandler->write()
+#7 [internal function]: Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy->write()
+#8 [internal function]: session_write_close()
+#9 {main}
+[14-Apr-2025 20:42:18 UTC] Drupal\Core\Database\DatabaseExceptionWrapper: SQLSTATE[HY000]: General error: 2014 Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute.: SELECT 1 AS "expression"
+FROM
+"uunn_sessions" "sessions"
+WHERE "sid" = :db_condition_placeholder_0; Array
+(
+    [:db_condition_placeholder_0] => 10IqiaYe-PdYWL09xfN_LeeWKDmeHCD8pcL9k7kut34
+)
+ in /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php on line 95 #0 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Connection.php(883): Drupal\mysql\Driver\Database\mysql\ExceptionHandler->handleExecutionException()
+#1 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Select.php(524): Drupal\Core\Database\Connection->query()
+#2 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Merge.php(379): Drupal\Core\Database\Query\Select->execute()
+#3 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(95): Drupal\Core\Database\Query\Merge->execute()
+#4 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(109): Drupal\Core\Session\SessionHandler->Drupal\Core\Session\{closure}()
+#5 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/WriteSafeSessionHandler.php(95): Drupal\Core\Session\SessionHandler->write()
+#6 /home/idtcs360/public_html/vendor/symfony/http-foundation/Session/Storage/Proxy/SessionHandlerProxy.php(54): Drupal\Core\Session\WriteSafeSessionHandler->write()
+#7 [internal function]: Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy->write()
+#8 [internal function]: session_write_close()
+#9 {main}
+[14-Apr-2025 21:02:37 UTC] Uncaught PHP Exception Exception: "Object of type Drupal\file\Plugin\Field\FieldType\FileFieldItemList cannot be printed." at /home/idtcs360/public_html/core/lib/Drupal/Core/Template/TwigExtension.php line 459
+[14-Apr-2025 21:04:47 UTC] Uncaught PHP Exception Exception: "Object of type Drupal\file\Plugin\Field\FieldType\FileFieldItemList cannot be printed." at /home/idtcs360/public_html/core/lib/Drupal/Core/Template/TwigExtension.php line 459
+[14-Apr-2025 21:06:22 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unclosed "variable"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/views/views-view--banners-home--banner-intermedio.html.twig line 8
+[14-Apr-2025 21:30:33 UTC] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException: "Image generation in progress. Try again shortly." at /home/idtcs360/public_html/core/modules/image/src/Controller/ImageStyleDownloadController.php line 218
+[14-Apr-2025 21:51:08 UTC] Uncaught PHP Exception Drupal\Core\Asset\Exception\InvalidLibraryFileException: "Invalid library definition in themes/custom/idt_theme/idt_theme.libraries.yml: Malformed inline YAML string: "{100}" at line 43 (near "https://unpkg.com/aos@2.3.1/dist/aos.css: {100}")." at /home/idtcs360/public_html/core/lib/Drupal/Core/Asset/LibraryDiscoveryParser.php line 401
+[14-Apr-2025 21:51:09 UTC] Uncaught PHP Exception Drupal\Core\Asset\Exception\InvalidLibraryFileException: "Invalid library definition in themes/custom/idt_theme/idt_theme.libraries.yml: Malformed inline YAML string: "{100}" at line 43 (near "https://unpkg.com/aos@2.3.1/dist/aos.css: {100}")." at /home/idtcs360/public_html/core/lib/Drupal/Core/Asset/LibraryDiscoveryParser.php line 401
+[14-Apr-2025 21:51:13 UTC] Uncaught PHP Exception Drupal\Core\Asset\Exception\InvalidLibraryFileException: "Invalid library definition in themes/custom/idt_theme/idt_theme.libraries.yml: Malformed inline YAML string: "{100}" at line 43 (near "https://unpkg.com/aos@2.3.1/dist/aos.css: {100}")." at /home/idtcs360/public_html/core/lib/Drupal/Core/Asset/LibraryDiscoveryParser.php line 401
+[14-Apr-2025 21:51:14 UTC] Uncaught PHP Exception Drupal\Core\Asset\Exception\InvalidLibraryFileException: "Invalid library definition in themes/custom/idt_theme/idt_theme.libraries.yml: Malformed inline YAML string: "{100}" at line 43 (near "https://unpkg.com/aos@2.3.1/dist/aos.css: {100}")." at /home/idtcs360/public_html/core/lib/Drupal/Core/Asset/LibraryDiscoveryParser.php line 401
+[14-Apr-2025 21:51:17 UTC] Uncaught PHP Exception Drupal\Core\Asset\Exception\InvalidLibraryFileException: "Invalid library definition in themes/custom/idt_theme/idt_theme.libraries.yml: Malformed inline YAML string: "{100}" at line 43 (near "https://unpkg.com/aos@2.3.1/dist/aos.css: {100}")." at /home/idtcs360/public_html/core/lib/Drupal/Core/Asset/LibraryDiscoveryParser.php line 401
+[14-Apr-2025 21:51:17 UTC] Uncaught PHP Exception Drupal\Core\Asset\Exception\InvalidLibraryFileException: "Invalid library definition in themes/custom/idt_theme/idt_theme.libraries.yml: Malformed inline YAML string: "{100}" at line 43 (near "https://unpkg.com/aos@2.3.1/dist/aos.css: {100}")." at /home/idtcs360/public_html/core/lib/Drupal/Core/Asset/LibraryDiscoveryParser.php line 401
+[14-Apr-2025 21:51:23 UTC] Uncaught PHP Exception Drupal\Core\Asset\Exception\InvalidLibraryFileException: "Invalid library definition in themes/custom/idt_theme/idt_theme.libraries.yml: Malformed inline YAML string: "{100}" at line 43 (near "https://unpkg.com/aos@2.3.1/dist/aos.css: {100}")." at /home/idtcs360/public_html/core/lib/Drupal/Core/Asset/LibraryDiscoveryParser.php line 401
+[14-Apr-2025 22:44:35 UTC] Uncaught PHP Exception LogicException: "Form errors cannot be set after form validation has finished." at /home/idtcs360/public_html/core/lib/Drupal/Core/Form/FormState.php line 1119
+[14-Apr-2025 22:50:37 UTC] Uncaught PHP Exception LogicException: "Form errors cannot be set after form validation has finished." at /home/idtcs360/public_html/core/lib/Drupal/Core/Form/FormState.php line 1119
+[17-Apr-2025 01:21:50 UTC] Uncaught PHP Exception InvalidArgumentException: ""uri" is an invalid render array key. Value should be an array but got a string." at /home/idtcs360/public_html/core/lib/Drupal/Core/Render/Element.php line 97
+[19-Apr-2025 11:59:22 UTC] Drupal\Core\Database\DatabaseExceptionWrapper: SQLSTATE[HY000]: General error: 2014 Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute.: SELECT 1 AS "expression"
+FROM
+"uunn_sessions" "sessions"
+WHERE "sid" = :db_condition_placeholder_0; Array
+(
+    [:db_condition_placeholder_0] => 4L2blxPTqo3ogxvqzihfUn8Yz3rw6jbBiBIbIDKF5CY
+)
+ in /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php on line 95 #0 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Connection.php(883): Drupal\mysql\Driver\Database\mysql\ExceptionHandler->handleExecutionException()
+#1 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Select.php(524): Drupal\Core\Database\Connection->query()
+#2 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Merge.php(379): Drupal\Core\Database\Query\Select->execute()
+#3 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(95): Drupal\Core\Database\Query\Merge->execute()
+#4 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(109): Drupal\Core\Session\SessionHandler->Drupal\Core\Session\{closure}()
+#5 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/WriteSafeSessionHandler.php(95): Drupal\Core\Session\SessionHandler->write()
+#6 /home/idtcs360/public_html/vendor/symfony/http-foundation/Session/Storage/Proxy/SessionHandlerProxy.php(54): Drupal\Core\Session\WriteSafeSessionHandler->write()
+#7 [internal function]: Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy->write()
+#8 [internal function]: session_write_close()
+#9 {main}
+[19-Apr-2025 12:15:05 UTC] Drupal\Core\Database\DatabaseExceptionWrapper: SQLSTATE[HY000]: General error: 2014 Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute.: SELECT 1 AS "expression"
+FROM
+"uunn_sessions" "sessions"
+WHERE "sid" = :db_condition_placeholder_0; Array
+(
+    [:db_condition_placeholder_0] => 4L2blxPTqo3ogxvqzihfUn8Yz3rw6jbBiBIbIDKF5CY
+)
+ in /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php on line 95 #0 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Connection.php(883): Drupal\mysql\Driver\Database\mysql\ExceptionHandler->handleExecutionException()
+#1 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Select.php(524): Drupal\Core\Database\Connection->query()
+#2 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Merge.php(379): Drupal\Core\Database\Query\Select->execute()
+#3 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(95): Drupal\Core\Database\Query\Merge->execute()
+#4 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(109): Drupal\Core\Session\SessionHandler->Drupal\Core\Session\{closure}()
+#5 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/WriteSafeSessionHandler.php(95): Drupal\Core\Session\SessionHandler->write()
+#6 /home/idtcs360/public_html/vendor/symfony/http-foundation/Session/Storage/Proxy/SessionHandlerProxy.php(54): Drupal\Core\Session\WriteSafeSessionHandler->write()
+#7 [internal function]: Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy->write()
+#8 [internal function]: session_write_close()
+#9 {main}
+[19-Apr-2025 12:51:58 UTC] Drupal\Core\Database\DatabaseExceptionWrapper: SQLSTATE[HY000]: General error: 2014 Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute.: SELECT 1 AS "expression"
+FROM
+"uunn_sessions" "sessions"
+WHERE "sid" = :db_condition_placeholder_0; Array
+(
+    [:db_condition_placeholder_0] => 4L2blxPTqo3ogxvqzihfUn8Yz3rw6jbBiBIbIDKF5CY
+)
+ in /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php on line 95 #0 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Connection.php(883): Drupal\mysql\Driver\Database\mysql\ExceptionHandler->handleExecutionException()
+#1 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Select.php(524): Drupal\Core\Database\Connection->query()
+#2 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Merge.php(379): Drupal\Core\Database\Query\Select->execute()
+#3 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(95): Drupal\Core\Database\Query\Merge->execute()
+#4 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(109): Drupal\Core\Session\SessionHandler->Drupal\Core\Session\{closure}()
+#5 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/WriteSafeSessionHandler.php(95): Drupal\Core\Session\SessionHandler->write()
+#6 /home/idtcs360/public_html/vendor/symfony/http-foundation/Session/Storage/Proxy/SessionHandlerProxy.php(54): Drupal\Core\Session\WriteSafeSessionHandler->write()
+#7 [internal function]: Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy->write()
+#8 [internal function]: session_write_close()
+#9 {main}
+[24-Apr-2025 19:41:42 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::drupalImage(): Argument #1 ($selector) must be of type string, array given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 70" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 236
+[24-Apr-2025 19:51:50 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::imageStyleFilter(): Argument #1 ($path) must be of type ?string, array given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 74" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 497
+[24-Apr-2025 19:55:45 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::imageStyleFilter(): Argument #1 ($path) must be of type ?string, array given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 74" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 497
+[24-Apr-2025 20:12:49 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::imageStyleFilter(): Argument #1 ($path) must be of type ?string, array given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 71" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 497
+[24-Apr-2025 20:19:59 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::imageStyleFilter(): Argument #1 ($path) must be of type ?string, array given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 75" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 497
+[24-Apr-2025 20:22:49 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\UriExtractor::extractUri(): Argument #1 ($input) must be of type ?object, array given, called in /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php on line 637" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/UriExtractor.php line 41
+[24-Apr-2025 20:26:49 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::pregReplaceFilter(): Argument #1 ($text) must be of type string, array given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 79" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 481
+[24-Apr-2025 20:27:39 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::pregReplaceFilter(): Argument #1 ($text) must be of type string, array given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 79" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 481
+[24-Apr-2025 20:27:56 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::pregReplaceFilter(): Argument #1 ($text) must be of type string, array given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 79" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 481
+[24-Apr-2025 20:30:03 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "operator" of value "=" ("end of print statement" expected)." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/field/field--field-post-gallery.html.twig line 64
+[24-Apr-2025 20:30:35 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "operator" of value "=" ("end of print statement" expected)." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/field/field--field-post-gallery.html.twig line 64
+[24-Apr-2025 20:31:07 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "name" of value "image_uri" ("end of print statement" expected)." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/field/field--field-post-gallery.html.twig line 64
+[24-Apr-2025 20:31:19 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "name" of value "image_uri" ("end of print statement" expected)." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/field/field--field-post-gallery.html.twig line 64
+[24-Apr-2025 20:34:05 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::pregReplaceFilter(): Argument #1 ($text) must be of type string, array given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 86" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 481
+[24-Apr-2025 20:36:16 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "string" filter." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/field/field--field-post-gallery.html.twig line 65
+[24-Apr-2025 20:42:55 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "string" filter." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/field/field--field-post-gallery.html.twig line 65
+[24-Apr-2025 20:42:57 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "string" filter." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/field/field--field-post-gallery.html.twig line 65
+[24-Apr-2025 20:43:08 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::pregReplaceFilter(): Argument #1 ($text) must be of type string, null given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 85" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 481
+[24-Apr-2025 20:43:33 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::pregReplaceFilter(): Argument #1 ($text) must be of type string, array given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 86" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 481
+[24-Apr-2025 20:44:00 UTC] Uncaught PHP Exception TypeError: "Unsupported operand types: array + string" at /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code line 81
+[24-Apr-2025 20:45:59 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::pregReplaceFilter(): Argument #1 ($text) must be of type string, array given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 86" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 481
+[24-Apr-2025 20:48:49 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::pregReplaceFilter(): Return value must be of type string, null returned" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 482
+[24-Apr-2025 20:49:27 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::pregReplaceFilter(): Return value must be of type string, null returned" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 482
+[24-Apr-2025 20:52:07 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::pregReplaceFilter(): Return value must be of type string, null returned" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 482
+[24-Apr-2025 20:53:07 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::imageStyleFilter(): Argument #1 ($path) must be of type ?string, array given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 76" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 497
+[24-Apr-2025 20:59:50 UTC] Uncaught PHP Exception TypeError: "strtr(): Argument #1 ($string) must be of type string, array given" at /home/idtcs360/public_html/vendor/twig/twig/src/Extension/CoreExtension.php line 603
+[24-Apr-2025 22:01:29 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "encode_url" filter." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/field/field--field-post-gallery.html.twig line 62
+[24-Apr-2025 22:16:56 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unknown "url_encodeimage_style" filter." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/field/field--field-post-gallery.html.twig line 64
+[26-Apr-2025 04:09:38 UTC] Uncaught PHP Exception TypeError: "Unsupported operand types: int - string" at /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code line 115
+[26-Apr-2025 04:10:00 UTC] Uncaught PHP Exception TypeError: "Unsupported operand types: int - string" at /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code line 115
+[26-Apr-2025 04:10:15 UTC] Uncaught PHP Exception TypeError: "Unsupported operand types: int - string" at /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code line 115
+[26-Apr-2025 16:14:06 UTC] PHP Fatal error:  Cannot redeclare template_preprocess_views_view() (previously declared in /home/idtcs360/public_html/themes/custom/idt_theme/idt_theme.theme:43) in /home/idtcs360/public_html/core/modules/views/views.theme.inc on line 23
+[26-Apr-2025 16:15:42 UTC] PHP Fatal error:  Cannot redeclare template_preprocess_views_view() (previously declared in /home/idtcs360/public_html/themes/custom/idt_theme/idt_theme.theme:43) in /home/idtcs360/public_html/core/modules/views/views.theme.inc on line 23
+[26-Apr-2025 16:15:52 UTC] PHP Fatal error:  Cannot redeclare template_preprocess_views_view() (previously declared in /home/idtcs360/public_html/themes/custom/idt_theme/idt_theme.theme:43) in /home/idtcs360/public_html/core/modules/views/views.theme.inc on line 23
+[26-Apr-2025 16:17:44 UTC] PHP Fatal error:  Cannot redeclare template_preprocess_views_view_fields() (previously declared in /home/idtcs360/public_html/themes/custom/idt_theme/idt_theme.theme:43) in /home/idtcs360/public_html/core/modules/views/views.theme.inc on line 98
+[28-Apr-2025 20:32:03 UTC] Uncaught PHP Exception LogicException: "Form errors cannot be set after form validation has finished." at /home/idtcs360/public_html/core/lib/Drupal/Core/Form/FormState.php line 1119
+[29-Apr-2025 16:21:54 UTC] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\HttpException: "The specified #ajax callback is empty or not callable." at /home/idtcs360/public_html/core/lib/Drupal/Core/Form/FormAjaxResponseBuilder.php line 67
+[30-Apr-2025 15:03:42 UTC] Drupal\Core\Database\DatabaseExceptionWrapper: SQLSTATE[HY000]: General error: 2014 Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute.: SELECT 1 AS "expression"
+FROM
+"uunn_sessions" "sessions"
+WHERE "sid" = :db_condition_placeholder_0; Array
+(
+    [:db_condition_placeholder_0] => rWGNWzu71hmAQ7MsL1nFFKpvmSmgDlcOG3PNUBak7Lw
+)
+ in /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php on line 95 #0 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Connection.php(883): Drupal\mysql\Driver\Database\mysql\ExceptionHandler->handleExecutionException()
+#1 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Select.php(524): Drupal\Core\Database\Connection->query()
+#2 /home/idtcs360/public_html/core/lib/Drupal/Core/Database/Query/Merge.php(379): Drupal\Core\Database\Query\Select->execute()
+#3 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(95): Drupal\Core\Database\Query\Merge->execute()
+#4 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/SessionHandler.php(109): Drupal\Core\Session\SessionHandler->Drupal\Core\Session\{closure}()
+#5 /home/idtcs360/public_html/core/lib/Drupal/Core/Session/WriteSafeSessionHandler.php(95): Drupal\Core\Session\SessionHandler->write()
+#6 /home/idtcs360/public_html/vendor/symfony/http-foundation/Session/Storage/Proxy/SessionHandlerProxy.php(54): Drupal\Core\Session\WriteSafeSessionHandler->write()
+#7 [internal function]: Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy->write()
+#8 [internal function]: session_write_close()
+#9 {main}
+[30-Apr-2025 18:08:47 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "name" of value "set" ("end of statement block" expected)." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/navigation/menu--menu-principal---mobile.html.twig line 75
+[30-Apr-2025 18:09:51 UTC] Uncaught PHP Exception ArgumentCountError: "Too few arguments to function Drupal\Core\Template\Attribute::setAttribute(), 1 passed in /home/idtcs360/public_html/vendor/twig/twig/src/Extension/CoreExtension.php on line 1882 and exactly 2 expected" at /home/idtcs360/public_html/core/lib/Drupal/Core/Template/Attribute.php line 214
+[30-Apr-2025 18:11:09 UTC] Uncaught PHP Exception ArgumentCountError: "Too few arguments to function Drupal\Core\Template\Attribute::setAttribute(), 1 passed in /home/idtcs360/public_html/vendor/twig/twig/src/Extension/CoreExtension.php on line 1882 and exactly 2 expected" at /home/idtcs360/public_html/core/lib/Drupal/Core/Template/Attribute.php line 214
+[30-Apr-2025 18:11:51 UTC] Uncaught PHP Exception ArgumentCountError: "Too few arguments to function Drupal\Core\Template\Attribute::setAttribute(), 1 passed in /home/idtcs360/public_html/vendor/twig/twig/src/Extension/CoreExtension.php on line 1882 and exactly 2 expected" at /home/idtcs360/public_html/core/lib/Drupal/Core/Template/Attribute.php line 214
+[30-Apr-2025 22:25:19 UTC] Uncaught PHP Exception TypeError: "idt_autocomplete_search_api_autocomplete_suggestions_alter(): Argument #2 ($request) must be of type Symfony\Component\HttpFoundation\Request, array given, called in /home/idtcs360/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php on line 552" at /home/idtcs360/public_html/modules/custom/idt_autocomplete/idt_autocomplete.module line 11
+[30-Apr-2025 22:25:28 UTC] Uncaught PHP Exception TypeError: "idt_autocomplete_search_api_autocomplete_suggestions_alter(): Argument #2 ($request) must be of type Symfony\Component\HttpFoundation\Request, array given, called in /home/idtcs360/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php on line 552" at /home/idtcs360/public_html/modules/custom/idt_autocomplete/idt_autocomplete.module line 11
+[30-Apr-2025 22:25:30 UTC] Uncaught PHP Exception TypeError: "idt_autocomplete_search_api_autocomplete_suggestions_alter(): Argument #2 ($request) must be of type Symfony\Component\HttpFoundation\Request, array given, called in /home/idtcs360/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php on line 552" at /home/idtcs360/public_html/modules/custom/idt_autocomplete/idt_autocomplete.module line 11
+[30-Apr-2025 22:27:38 UTC] Uncaught PHP Exception TypeError: "idt_autocomplete_search_api_autocomplete_suggestions_alter(): Argument #2 ($request) must be of type Symfony\Component\HttpFoundation\Request, array given, called in /home/idtcs360/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php on line 552" at /home/idtcs360/public_html/modules/custom/idt_autocomplete/idt_autocomplete.module line 11
+[30-Apr-2025 22:28:36 UTC] Uncaught PHP Exception TypeError: "idt_autocomplete_search_api_autocomplete_suggestions_alter(): Argument #2 ($request) must be of type Symfony\Component\HttpFoundation\Request, array given, called in /home/idtcs360/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php on line 552" at /home/idtcs360/public_html/modules/custom/idt_autocomplete/idt_autocomplete.module line 11
+[30-Apr-2025 22:28:38 UTC] Uncaught PHP Exception TypeError: "idt_autocomplete_search_api_autocomplete_suggestions_alter(): Argument #2 ($request) must be of type Symfony\Component\HttpFoundation\Request, array given, called in /home/idtcs360/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php on line 552" at /home/idtcs360/public_html/modules/custom/idt_autocomplete/idt_autocomplete.module line 11
+[30-Apr-2025 22:31:41 UTC] Uncaught PHP Exception TypeError: "idt_autocomplete_search_api_autocomplete_suggestions_alter(): Argument #2 ($request) must be of type Symfony\Component\HttpFoundation\Request, array given, called in /home/idtcs360/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php on line 552" at /home/idtcs360/public_html/modules/custom/idt_autocomplete/idt_autocomplete.module line 9
+[30-Apr-2025 22:32:31 UTC] Uncaught PHP Exception TypeError: "idt_autocomplete_search_api_autocomplete_suggestions_alter(): Argument #2 ($request) must be of type Symfony\Component\HttpFoundation\Request, array given, called in /home/idtcs360/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php on line 552" at /home/idtcs360/public_html/modules/custom/idt_autocomplete/idt_autocomplete.module line 9
+[30-Apr-2025 22:35:29 UTC] Uncaught PHP Exception TypeError: "idt_autocomplete_search_api_autocomplete_suggestions_alter(): Argument #2 ($request) must be of type Symfony\Component\HttpFoundation\Request, array given, called in /home/idtcs360/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php on line 552" at /home/idtcs360/public_html/modules/custom/idt_autocomplete/idt_autocomplete.module line 9
+[30-Apr-2025 22:45:21 UTC] Uncaught PHP Exception TypeError: "idt_autocomplete_search_api_autocomplete_suggestions_alter(): Argument #2 ($request) must be of type Symfony\Component\HttpFoundation\Request, array given, called in /home/idtcs360/public_html/core/lib/Drupal/Core/Extension/ModuleHandler.php on line 552" at /home/idtcs360/public_html/modules/custom/idt_autocomplete/idt_autocomplete.module line 9
+[05-May-2025 13:55:51 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected character "'"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/field/field--block-content--acordeon.html.twig line 65
+[05-May-2025 14:05:54 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unclosed "("." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/field/field--block-content--acordeon.html.twig line 41
+[05-May-2025 14:06:09 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unclosed "["." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/field/field--block-content--acordeon.html.twig line 41
+[05-May-2025 14:06:22 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unclosed "("." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/field/field--block-content--acordeon.html.twig line 41
+[05-May-2025 14:09:51 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unclosed "["." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/field/field--block-content--acordeon.html.twig line 41
+[05-May-2025 19:52:44 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unclosed "variable"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/views/views-view.html.twig line 47
+[05-May-2025 19:54:23 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unclosed "variable"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/views/views-view.html.twig line 47
+[05-May-2025 19:54:34 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unclosed "variable"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/views/views-view.html.twig line 47
+[05-May-2025 19:57:41 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unclosed "block"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/views/views-view.html.twig line 45
+[05-May-2025 19:58:44 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "A mapping key must be a quoted string, a number, a name, or an expression enclosed in parentheses (unexpected token "punctuation" of value "{"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/views/views-view.html.twig line 45
+[05-May-2025 19:59:30 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "A mapping key must be a quoted string, a number, a name, or an expression enclosed in parentheses (unexpected token "punctuation" of value "{"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/views/views-view.html.twig line 45
+[05-May-2025 19:59:42 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "A mapping key must be a quoted string, a number, a name, or an expression enclosed in parentheses (unexpected token "punctuation" of value "{"." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/views/views-view.html.twig line 45
+[14-May-2025 17:14:28 UTC] Uncaught PHP Exception TypeError: "Drupal\twig_tweak\TwigTweakExtension::drupalBlock(): Argument #2 ($configuration) must be of type array, string given, called in /home/idtcs360/public_html/vendor/twig/twig/src/Environment.php(421) : eval()'d code on line 152" at /home/idtcs360/public_html/modules/contrib/twig_tweak/src/TwigTweakExtension.php line 149
+[14-May-2025 20:16:00 UTC] Uncaught PHP Exception Symfony\Component\Routing\Exception\InvalidParameterException: "Parameter "node" for route "entity.node.canonical" must match "\d+" ("" given) to generate a corresponding URL." at /home/idtcs360/public_html/core/lib/Drupal/Core/Routing/UrlGenerator.php line 209
+[22-May-2025 18:05:00 UTC] Uncaught PHP Exception Exception: "Object of type stdClass cannot be printed." at /home/idtcs360/public_html/core/lib/Drupal/Core/Template/TwigExtension.php line 459
+[22-May-2025 22:30:07 UTC] Uncaught PHP Exception DateMalformedStringException: "Failed to parse time string (
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   ▪️ field--node--created--article.html.twig
+   ✅ field--node--created.html.twig
+   ▪️ field--node--article.html.twig
+   ▪️ field--created.html.twig
+   ▪️ field--created.html.twig
+   ▪️ field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/claro/templates/classy/field/field--node--created.html.twig' -->
+<span class="field field--name-created field--type-created field--label-hidden">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'time' -->
+<!-- BEGIN OUTPUT from 'core/themes/claro/templates/classy/field/time.html.twig' -->
+<time datetime="2025-05-05T13:54:36+00:00" title="Lunes, Mayo 5, 2025 - 13:54" class="datetime">Lun, 05/05/2025 - 13:54</time>
+
+<!-- END OUTPUT from 'core/themes/claro/templates/classy/field/time.html.twig' -->
+
+</span>
+
+<!-- END OUTPUT from 'core/themes/claro/templates/classy/field/field--node--created.html.twig' -->
+
+) at position 0 (<): Unexpected character" at /home/idtcs360/public_html/vendor/twig/twig/src/Extension/CoreExtension.php line 579
+[22-May-2025 22:30:29 UTC] Uncaught PHP Exception Error: "Cannot use object of type Drupal\Core\Render\Markup as array" at /home/idtcs360/public_html/modules/contrib/twig_field_value/src/Twig/Extension/FieldValueExtension.php line 390
+[22-May-2025 22:32:14 UTC] Uncaught PHP Exception Error: "Cannot use object of type Drupal\Core\Render\Markup as array" at /home/idtcs360/public_html/modules/contrib/twig_field_value/src/Twig/Extension/FieldValueExtension.php line 390
+[22-May-2025 22:34:50 UTC] Uncaught PHP Exception InvalidArgumentException: "The timestamp must be numeric." at /home/idtcs360/public_html/core/lib/Drupal/Component/Datetime/DateTimePlus.php line 207
+[22-May-2025 22:37:24 UTC] Uncaught PHP Exception DateMalformedStringException: "Failed to parse time string (
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   ▪️ field--node--created--article.html.twig
+   ✅ field--node--created.html.twig
+   ▪️ field--node--article.html.twig
+   ▪️ field--created.html.twig
+   ▪️ field--created.html.twig
+   ▪️ field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/claro/templates/classy/field/field--node--created.html.twig' -->
+<span class="field field--name-created field--type-created field--label-hidden">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'time' -->
+<!-- BEGIN OUTPUT from 'core/themes/claro/templates/classy/field/time.html.twig' -->
+<time datetime="2025-05-05T13:54:36+00:00" title="Lunes, Mayo 5, 2025 - 13:54" class="datetime">Lun, 05/05/2025 - 13:54</time>
+
+<!-- END OUTPUT from 'core/themes/claro/templates/classy/field/time.html.twig' -->
+
+</span>
+
+<!-- END OUTPUT from 'core/themes/claro/templates/classy/field/field--node--created.html.twig' -->
+
+) at position 0 (<): Unexpected character" at /home/idtcs360/public_html/vendor/twig/twig/src/Extension/CoreExtension.php line 579
+[22-May-2025 22:41:09 UTC] Uncaught PHP Exception Twig\Error\SyntaxError: "Unexpected token "end of print statement" ("name" expected)." at /home/idtcs360/public_html/themes/custom/idt_theme/templates/content/node--article--full.html.twig line 97
+[22-May-2025 22:42:08 UTC] Uncaught PHP Exception Error: "Cannot use object of type Drupal\Core\Render\Markup as array" at /home/idtcs360/public_html/modules/contrib/twig_field_value/src/Twig/Extension/FieldValueExtension.php line 390
+[22-May-2025 22:43:11 UTC] Uncaught PHP Exception InvalidArgumentException: "$string ("
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   ▪️ field--node--created--article.html.twig
+   ✅ field--node--created.html.twig
+   ▪️ field--node--article.html.twig
+   ▪️ field--created.html.twig
+   ▪️ field--created.html.twig
+   ▪️ field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/claro/templates/classy/field/field--node--created.html.twig' -->
+<span class="field field--name-created field--type-created field--label-hidden">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'time' -->
+<!-- BEGIN OUTPUT from 'core/themes/claro/templates/classy/field/time.html.twig' -->
+<time datetime="2025-05-05T13:54:36+00:00" title="Lunes, Mayo 5, 2025 - 13:54" class="datetime">Lun, 05/05/2025 - 13:54</time>
+
+<!-- END OUTPUT from 'core/themes/claro/templates/classy/field/time.html.twig' -->
+
+</span>
+
+<!-- END OUTPUT from 'core/themes/claro/templates/classy/field/field--node--created.html.twig' -->
+
+") must be a string." at /home/idtcs360/public_html/core/lib/Drupal/Core/StringTranslation/TranslatableMarkup.php line 132
+[22-May-2025 22:45:26 UTC] Uncaught PHP Exception DateMalformedStringException: "Failed to parse time string (
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   ▪️ field--node--created--article.html.twig
+   ✅ field--node--created.html.twig
+   ▪️ field--node--article.html.twig
+   ▪️ field--created.html.twig
+   ▪️ field--created.html.twig
+   ▪️ field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/themes/claro/templates/classy/field/field--node--created.html.twig' -->
+<span class="field field--name-created field--type-created field--label-hidden">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'time' -->
+<!-- BEGIN OUTPUT from 'core/themes/claro/templates/classy/field/time.html.twig' -->
+<time datetime="2025-05-05T13:54:36+00:00" title="Lunes, Mayo 5, 2025 - 13:54" class="datetime">Lun, 05/05/2025 - 13:54</time>
+
+<!-- END OUTPUT from 'core/themes/claro/templates/classy/field/time.html.twig' -->
+
+</span>
+
+<!-- END OUTPUT from 'core/themes/claro/templates/classy/field/field--node--created.html.twig' -->
+
+) at position 0 (<): Unexpected character" at /home/idtcs360/public_html/vendor/twig/twig/src/Extension/CoreExtension.php line 579
+[22-May-2025 22:46:48 UTC] Uncaught PHP Exception Exception: "Object of type Drupal\Core\Field\FieldItemList cannot be printed." at /home/idtcs360/public_html/core/lib/Drupal/Core/Template/TwigExtension.php line 459
+[22-May-2025 23:00:18 UTC] Uncaught PHP Exception Twig\Error\LoaderError: "Template "themes/custom/idt_theme/templates/content/node--1663--full.html.twig" is not defined." at /home/idtcs360/public_html/vendor/twig/twig/src/Loader/ChainLoader.php line 111

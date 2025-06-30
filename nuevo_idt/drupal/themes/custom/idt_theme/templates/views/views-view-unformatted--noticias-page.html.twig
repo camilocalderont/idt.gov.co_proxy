@@ -1,0 +1,10 @@
+{% if header %}
+	<div class="view-header">
+		{{ header }}
+	</div>
+{% endif %}
+<div class="grid--default grid-two-column--mobile">
+    {% for row in rows %}
+    	{{ row.content }}
+    {% endfor %}
+</div>

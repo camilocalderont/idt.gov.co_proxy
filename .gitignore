@@ -1,0 +1,9 @@
+/traefik/certs/
+/traefik/logs/
+/mariadb/data/
+/mariadb/logs/
+/nuevo_idt/drupal/sites/default/files/
+/nuevo_idt/drupal/vendor/
+/nuevo_idt/configuraciones/idtcs360_bddrpl.sql
+backup-6.6.2025_18-25-26_idtcs360.tar.gz
+.DS_Store

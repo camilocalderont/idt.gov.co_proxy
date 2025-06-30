@@ -1,0 +1,22 @@
+Versión de Drupal
+10.4.7
+ 
+Servidor web
+LiteSpeed
+ 
+Última Ejecución de Cron
+Última ejecución hace 2 horas 7 minutos
+(más información)
+Ejecutar cron
+ 
+PHP
+Versión
+8.3.21 (más información)
+Límite de memoria
+256M
+ 
+Base de datos
+Versión
+10.6.22-MariaDB-log
+Sistema
+MariaDB

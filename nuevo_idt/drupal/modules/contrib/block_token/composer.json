@@ -1,0 +1,9 @@
+{
+  "name": "drupal/block_token",
+  "type": "drupal-module",
+  "description": "The Block Token module allows you to create the tokens for blocks on site. ",
+  "homepage": "https://www.drupal.org/project/block_token",
+  "license": "gpl-2.0",
+  "extra": { },
+  "minimum-stability": "dev"
+}

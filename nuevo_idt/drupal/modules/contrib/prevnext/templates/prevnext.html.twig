@@ -1,0 +1,15 @@
+{#
+/**
+ * @file prevnext.html.twig
+ * Default theme implementation to the prevnext indicator.
+ *
+ * Available variables:
+ * - direction: "previous" or "next"
+ * - text: The translated text for "Previous" or "Next"
+ * - id: The entity ID of the destination link
+ * - url: A formatted absolute URL for the path /{ENTITY_TYPE}}/$id
+ */
+#}
+<div id="prevnext-{{ direction }}" class="prevnext-element {{ direction }}">
+  <a href="{{ url }}">{{ text }}</a>
+</div>

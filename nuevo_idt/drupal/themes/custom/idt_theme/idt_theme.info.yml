@@ -1,0 +1,27 @@
+name: IDT Theme
+type: theme
+base theme: claro
+description: A clean, accessible, and flexible Drupal front-end theme.
+package: Custom
+version: 1.0.0
+core_version_requirement: ^9 || ^10
+libraries:
+  - idt_theme/swiper
+  - idt_theme/aos
+  - idt_theme/accordion-js
+  - idt_theme/global-styling
+
+regions:
+  header_top: Header Top
+  header: Header
+  content: Content
+  sidebar: Sidebar
+  footer: Footer
+  footer_top: Footer Top
+  footer_left: Footer Left navigation
+  footer_center: Footer Center navigation
+  footer_right: Footer Right navigation
+  footer_bottom: Footer Botom navigation
+  hidden: Hidden
+
+

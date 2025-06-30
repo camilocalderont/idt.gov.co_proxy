@@ -1,0 +1,28 @@
+{# Template for the view conectate_con_nosotros #}
+
+<div class="view-conectate-con-nosotros container" data-aos="fade-up">
+	{% if rows %}
+		<div class="view-content">
+			{% for row in view.result %}
+				<a
+					href="{{ row._entity.field_bannerlink.uri }}" class="view-row">
+					{# Accede al campo field_banner #}
+					<div class="field field-banner">
+						{% if row._entity.field_banner.entity %}
+							<img src="{{ file_url(row._entity.field_banner.entity.uri.value) }}" alt="{{ row._entity.field_banner.alt }}">
+						{% endif %}
+					</div>
+					<div class="field-image">
+						{% if row._entity.field_banner.entity %}
+							<img src="{{ file_url(row._entity.field_image.entity.uri.value) }}" alt="{{ row._entity.field_image.alt }}">
+						{% endif %}
+					</div>
+				</a>
+			{% endfor %}
+		</div>
+	{% else %}
+		<div class="view-empty">
+			{{ empty }}
+		</div>
+	{% endif %}
+</div>
