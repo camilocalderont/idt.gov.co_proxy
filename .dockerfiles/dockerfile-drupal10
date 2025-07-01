@@ -57,8 +57,6 @@ RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/lsphp${PHP_VERS
 RUN /usr/local/lsws/lsphp${PHP_VERSION}/bin/php /usr/local/bin/composer global require drush/drush:^13.3 && \
     ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
 
-# Configurar PHP antes de copiar código
-COPY configuraciones/php.ini /usr/local/lsws/lsphp${PHP_VERSION}/etc/php/${PHP_VERSION}/litespeed/php.ini
 
 # Crear directorios de logs y temporales (NO de aplicación)
 RUN mkdir -p /var/log/php && \
@@ -78,9 +76,6 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Limpiar archivos innecesarios
-RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # NO crear directorios de aplicación - 100% stateless
 # El código viene por volumen externo
