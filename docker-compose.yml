@@ -9,6 +9,7 @@ services:
       MYSQL_DATABASE: ${DB_NAME:-idt_drupal}
       MYSQL_USER: ${DB_USER:-idt_user}
       MYSQL_PASSWORD: ${DB_PASSWORD:-secure_password}
+      TZ: America/Bogota
     ports:
       - "33069:3306"
     volumes:
@@ -25,8 +26,8 @@ services:
 
   # Servicio 1: Proxy Traefik
   traefik:
-    image: traefik:v2.10.5
-    container_name: traefik_idt
+    image: traefik:v3.0
+    container_name: traefik
     restart: unless-stopped
     command:
       - "--api.dashboard=true"
@@ -78,8 +79,8 @@ services:
   # Servicio 2: Nuevo sitio IDT (Drupal 10)
   nuevo_idt:
     build:
-      context: ./.dockerfiles/dockerfile-drupal10
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: .dockerfiles/dockerfile-drupal10
     container_name: nuevo_idt
     restart: unless-stopped
     environment:
@@ -88,10 +89,20 @@ services:
       - DRUPAL_DB_USER=${DB_USER:-idt_user}
       - DRUPAL_DB_PASSWORD=${DB_PASSWORD:-secure_password}
       - DRUPAL_BASE_URL=https://www.idt.gov.co
+      - TZ=America/Bogota
+      - PHP_VERSION=83
     volumes:
-      - ./nuevo_sitio_web:/var/www/html
-      - ./config/php/php83.ini:/usr/local/lsws/lsphp83/etc/php/83/litespeed/php.ini:ro
-      - ./config/litespeed/drupal10:/usr/local/lsws/conf/vhosts/drupal10:ro
+      # Código de aplicación (externo - stateless)
+      - ./nuevo_idt/drupal:/var/www/html:rw
+
+      # Configuraciones (solo lectura)
+      - ./nuevo_idt/config/php/php83-optimized.ini:/usr/local/lsws/lsphp83/etc/php/83/litespeed/php.ini:ro
+      - ./nuevo_idt/config/litespeed/httpd_config.conf:/usr/local/lsws/conf/httpd_config.conf:ro
+      - ./nuevo_idt/config/litespeed/vhosts_drupal10.conf:/usr/local/lsws/conf/vhosts/drupal10/vhconf.conf:ro
+
+      # Logs (para monitoreo)
+      - ./nuevo_idt/logs/php:/var/log/php:rw
+      - ./nuevo_idt/logs/litespeed:/usr/local/lsws/logs:rw
     networks:
       - red_idt_gov_co
     labels:

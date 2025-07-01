@@ -3,30 +3,27 @@ FROM litespeedtech/openlitespeed:1.7.19-lsphp83
 
 # Información del mantenedor
 LABEL maintainer="IDT Developer"
-LABEL description="Drupal 10 with OpenLiteSpeed and PHP 8.3"
+LABEL description="Drupal 10.4.7 with OpenLiteSpeed and PHP 8.3.21 for IDT"
 
 # Variables de entorno
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PHP_VERSION=83
-ENV DRUPAL_VERSION=10
+ENV TZ=America/Bogota
 
-# Actualizar sistema e instalar dependencias
+# Actualizar sistema e instalar dependencias básicas
 RUN apt-get update && apt-get install -y \
     curl \
     wget \
     git \
     unzip \
-    vim \
-    cron \
     supervisor \
     mysql-client \
+    tzdata \
     && rm -rf /var/lib/apt/lists/*
 
-# Instalar extensiones PHP necesarias para Drupal 10
-RUN /usr/local/lsws/lsphp${PHP_VERSION}/bin/php -v
-
-# Instalar extensiones PHP adicionales para Drupal
+# Instalar extensiones PHP para Drupal 10
 RUN apt-get update && apt-get install -y \
+    lsphp${PHP_VERSION}-common \
     lsphp${PHP_VERSION}-mysql \
     lsphp${PHP_VERSION}-curl \
     lsphp${PHP_VERSION}-gd \
@@ -37,34 +34,62 @@ RUN apt-get update && apt-get install -y \
     lsphp${PHP_VERSION}-imagick \
     lsphp${PHP_VERSION}-intl \
     lsphp${PHP_VERSION}-bcmath \
+    lsphp${PHP_VERSION}-bz2 \
+    lsphp${PHP_VERSION}-enchant \
+    lsphp${PHP_VERSION}-imap \
+    lsphp${PHP_VERSION}-memcached \
+    lsphp${PHP_VERSION}-pgsql \
+    lsphp${PHP_VERSION}-pspell \
+    lsphp${PHP_VERSION}-soap \
+    lsphp${PHP_VERSION}-sqlite3 \
+    lsphp${PHP_VERSION}-tidy \
+    lsphp${PHP_VERSION}-xsl \
     && rm -rf /var/lib/apt/lists/*
 
 # Configurar directorio de trabajo
 WORKDIR /var/www/html
 
 # Instalar Composer
-RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/lsphp${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/lsphp${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer \
+    && chmod +x /usr/local/bin/composer
 
-# Configurar PHP
-COPY php.ini /usr/local/lsws/lsphp${PHP_VERSION}/etc/php/${PHP_VERSION}/litespeed/php.ini
+# Instalar Drush globalmente
+RUN /usr/local/lsws/lsphp${PHP_VERSION}/bin/php /usr/local/bin/composer global require drush/drush:^13.3 && \
+    ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
 
-# Configurar LiteSpeed
-COPY httpd_config.conf /usr/local/lsws/conf/httpd_config.conf
-COPY vhosts.conf /usr/local/lsws/conf/vhosts/drupal10/vhconf.conf
+# Configurar PHP antes de copiar código
+COPY configuraciones/php.ini /usr/local/lsws/lsphp${PHP_VERSION}/etc/php/${PHP_VERSION}/litespeed/php.ini
 
-# Crear directorios necesarios
-RUN mkdir -p /var/www/html/sites/default/files && \
-    mkdir -p /var/www/html/sites/default/files/translations && \
-    chown -R nobody:nogroup /var/www/html && \
-    chmod -R 755 /var/www/html/sites/default/files
+# Crear directorios de logs y temporales (NO de aplicación)
+RUN mkdir -p /var/log/php && \
+    mkdir -p /tmp/opcache && \
+    mkdir -p /tmp/lshttpd && \
+    mkdir -p /tmp/lshttpd/swap && \
+    mkdir -p /tmp/lshttpd/quic && \
+    touch /var/log/php_errors.log && \
+    chown -R nobody:nogroup /var/log/php && \
+    chown -R nobody:nogroup /tmp/opcache && \
+    chown -R nobody:nogroup /tmp/lshttpd
 
-# Script de entrada personalizado
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
+# Configurar timezone usando variable de entorno
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-# Exponer puerto
-EXPOSE 80 443
+# Limpiar archivos innecesarios
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Comando de entrada
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+# Limpiar archivos innecesarios
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# NO crear directorios de aplicación - 100% stateless
+# El código viene por volumen externo
+
+# Configurar directorio de trabajo (solo para contexto)
+WORKDIR /var/www/html
+
+# Exponer solo puerto HTTP (Traefik maneja HTTPS)
+EXPOSE 80
+
+# Comando directo - Sin entrypoint
 CMD ["/usr/local/lsws/bin/lshttpd", "-D"]

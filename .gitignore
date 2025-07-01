@@ -1,9 +1,52 @@
+# Traefik
 /traefik/certs/
 /traefik/logs/
+
+# MariaDB
 /mariadb/data/
 /mariadb/logs/
+
+# Drupal files
 /nuevo_idt/drupal/sites/default/files/
 /nuevo_idt/drupal/vendor/
+/anterior_idt/drupal/sites/default/files/
+/anterior_idt/drupal/vendor/
+
+# Database backups and SQL files
 /nuevo_idt/configuraciones/idtcs360_bddrpl.sql
-backup-6.6.2025_18-25-26_idtcs360.tar.gz
+backup-*.tar.gz
+*.sql
+*.sql.gz
+
+# Python files and virtual environment
+combine_code.py
+combined_code.txt
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# System files
 .DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Log files
+*.log
+error_log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Prompts and environment variables
+.prompts/
+CLAUDE.md
+GEMINI.md
+.env
