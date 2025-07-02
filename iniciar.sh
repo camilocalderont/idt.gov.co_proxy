@@ -13,9 +13,9 @@ echo "📁 Creando directorios necesarios..."
 mkdir -p idt_nuevo/logs/{php,litespeed}
 mkdir -p idt_nuevo/traefik/{certs,logs}
 
-# Verificar archivo docker-compose.yml
+# Verificar archivo docker compose.yml
 if [[ ! -f "docker-compose.yml" ]]; then
-    echo "❌ Error: No se encuentra docker-compose.yml"
+    echo "❌ Error: No se encuentra docker compose.yml"
     exit 1
 fi
 
@@ -32,13 +32,13 @@ docker compose up -d
 
 # Esperar un poco para que los servicios estén listos
 echo "⏳ Esperando servicios..."
-sleep 20
+sleep 3
 
 # Verificar que los contenedores estén ejecutándose
 echo "✅ Verificando contenedores..."
-if ! docker-compose ps | grep -q "Up"; then
+if ! docker compose ps | grep -q "Up"; then
     echo "❌ Error: Algunos contenedores no están ejecutándose"
-    docker-compose ps
+    docker compose ps
     exit 1
 fi
 
@@ -94,7 +94,7 @@ echo ""
 echo "🎉 Proceso completado!"
 echo ""
 echo "📊 Estado de contenedores:"
-docker-compose ps
+docker compose ps
 
 echo ""
 echo "🌐 URLs disponibles:"
@@ -102,9 +102,9 @@ echo "   • Sitio principal: https://www.idt.gov.co"
 echo "   • Sitio anterior:  https://anterior.idt.gov.co"
 echo ""
 echo "📝 Comandos útiles:"
-echo "   • Ver logs:        docker-compose logs -f [servicio]"
+echo "   • Ver logs:        docker compose logs -f [servicio]"
 echo "   • Entrar al contenedor: docker exec -it [contenedor] bash"
-echo "   • Reiniciar:       docker-compose restart [servicio]"
+echo "   • Reiniciar:       docker compose restart [servicio]"
 
 echo ""
 echo "✨ ¡IDT.gov.co está listo!"

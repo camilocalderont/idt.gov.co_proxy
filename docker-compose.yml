@@ -81,6 +81,7 @@ services:
     build:
       context: .
       dockerfile: .dockerfiles/dockerfile-drupal10
+    platform: linux/amd64
     container_name: idt_nuevo
     restart: unless-stopped
     environment:
@@ -124,6 +125,7 @@ services:
     build:
       context: .
       dockerfile: .dockerfiles/dockerfile-drupal8
+    platform: linux/amd64
     container_name: idt_anterior
     restart: unless-stopped
     environment:

@@ -1,5 +1,5 @@
-# Dockerfile para Drupal 8 con LiteSpeed - 100% Stateless
-FROM litespeedtech/openlitespeed:1.7.19-lsphp74
+# Dockerfile para Drupal 8 con LiteSpeed - Método PPA (Corregido)
+FROM litespeedtech/openlitespeed:1.8.1-lsphp74
 
 # Información del mantenedor
 LABEL maintainer="IDT Developer"
@@ -8,80 +8,60 @@ LABEL description="Drupal 8 with LiteSpeed - Stateless Container for IDT Legacy 
 # Variables de entorno
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PHP_VERSION=74
+ENV PHP_DOT_VERSION=7.4
 ENV TZ=America/Bogota
 
-# Actualizar sistema e instalar dependencias básicas
-RUN apt-get update && apt-get install -y \
+# 1. AÑADIR EL REPOSITORIO PPA PARA VERSIONES ANTIGUAS DE PHP
+# Se añade 'gpg-agent', la dependencia que faltaba para importar la llave del PPA.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    software-properties-common \
+    gpg-agent \
+    && add-apt-repository ppa:ondrej/php \
+    && apt-get update
+
+# 2. INSTALAR DEPENDENCIAS Y EXTENSIONES DESDE EL NUEVO REPOSITORIO
+RUN apt-get install -y --no-install-recommends \
+    # Herramientas básicas
     curl \
     wget \
     git \
     unzip \
     mysql-client \
     tzdata \
+    # Lista completa de extensiones de PHP 7.4
+    php${PHP_DOT_VERSION}-bcmath \
+    php${PHP_DOT_VERSION}-bz2 \
+    php${PHP_DOT_VERSION}-enchant \
+    php${PHP_DOT_VERSION}-gd \
+    php${PHP_DOT_VERSION}-imagick \
+    php${PHP_DOT_VERSION}-imap \
+    php${PHP_DOT_VERSION}-intl \
+    php${PHP_DOT_VERSION}-memcached \
+    php${PHP_DOT_VERSION}-mysql \
+    php${PHP_DOT_VERSION}-pgsql \
+    php${PHP_DOT_VERSION}-pspell \
+    php${PHP_DOT_VERSION}-shmop \
+    php${PHP_DOT_VERSION}-soap \
+    php${PHP_DOT_VERSION}-sqlite3 \
+    php${PHP_DOT_VERSION}-tidy \
+    php${PHP_DOT_VERSION}-xsl \
+    php${PHP_DOT_VERSION}-zip \
+    php${PHP_DOT_VERSION}-xml \
+    php${PHP_DOT_VERSION}-mbstring \
     && rm -rf /var/lib/apt/lists/*
 
-# Instalar extensiones PHP para Drupal 8 (compatible con PHP 7.4)
-RUN apt-get update && apt-get install -y \
-    lsphp${PHP_VERSION}-common \
-    lsphp${PHP_VERSION}-mysql \
-    lsphp${PHP_VERSION}-curl \
-    lsphp${PHP_VERSION}-gd \
-    lsphp${PHP_VERSION}-mbstring \
-    lsphp${PHP_VERSION}-xml \
-    lsphp${PHP_VERSION}-zip \
-    lsphp${PHP_VERSION}-opcache \
-    lsphp${PHP_VERSION}-imagick \
-    lsphp${PHP_VERSION}-intl \
-    lsphp${PHP_VERSION}-bcmath \
-    lsphp${PHP_VERSION}-bz2 \
-    lsphp${PHP_VERSION}-enchant \
-    lsphp${PHP_VERSION}-imap \
-    lsphp${PHP_VERSION}-memcached \
-    lsphp${PHP_VERSION}-pgsql \
-    lsphp${PHP_VERSION}-pspell \
-    lsphp${PHP_VERSION}-soap \
-    lsphp${PHP_VERSION}-sqlite3 \
-    lsphp${PHP_VERSION}-tidy \
-    lsphp${PHP_VERSION}-xsl \
-    lsphp${PHP_VERSION}-json \
-    && rm -rf /var/lib/apt/lists/*
+# 3. INSTALAR COMPOSER Y DRUSH
+RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/lsphp${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer
+RUN /usr/local/lsws/lsphp${PHP_VERSION}/bin/php /usr/local/bin/composer global require drush/drush:^10 \
+    && ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
 
-# Instalar Composer (versión compatible con PHP 7.4)
-RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/lsphp${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer \
-    && chmod +x /usr/local/bin/composer
+# 4. CONFIGURACIÓN FINAL DEL ENTORNO
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
+    && mkdir -p /var/log/php && touch /var/log/php_errors.log && chown -R nobody:nogroup /var/log/php \
+    && apt-get clean
 
-# Instalar Drush para Drupal 8 (versión compatible)
-RUN /usr/local/lsws/lsphp${PHP_VERSION}/bin/php /usr/local/bin/composer global require drush/drush:^9.7 && \
-    ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
-
-# Crear directorios de logs y temporales (NO de aplicación)
-RUN mkdir -p /var/log/php && \
-    mkdir -p /tmp/opcache && \
-    mkdir -p /tmp/lshttpd && \
-    mkdir -p /tmp/lshttpd/swap && \
-    mkdir -p /tmp/lshttpd/quic && \
-    mkdir -p /tmp/sessions && \
-    touch /var/log/php_errors.log && \
-    chown -R nobody:nogroup /var/log/php && \
-    chown -R nobody:nogroup /tmp/opcache && \
-    chown -R nobody:nogroup /tmp/lshttpd && \
-    chown -R nobody:nogroup /tmp/sessions
-
-# Configurar timezone usando variable de entorno
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-# Limpiar archivos innecesarios
-RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# NO crear directorios de aplicación - 100% stateless
-# El código viene por volumen externo
-
-# Configurar directorio de trabajo (solo para contexto)
 WORKDIR /var/www/html
 
-# Exponer solo puerto HTTP (Traefik maneja HTTPS)
 EXPOSE 80
 
-# Comando directo - Sin entrypoint
 CMD ["/usr/local/lsws/bin/lshttpd", "-D"]
