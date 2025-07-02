@@ -97,9 +97,9 @@ services:
       - ./idt_nuevo/drupal:/var/www/html:rw
 
       # Configuraciones (solo lectura)
-      - ./idt_nuevo/config/php/php83-optimized.ini:/usr/local/lsws/lsphp83/etc/php/83/litespeed/php.ini:ro
-      - ./idt_nuevo/config/litespeed/httpd_config.conf:/usr/local/lsws/conf/httpd_config.conf:ro
-      - ./idt_nuevo/config/litespeed/vhosts_drupal10.conf:/usr/local/lsws/conf/vhosts/drupal10/vhconf.conf:ro
+      - ./idt_nuevo/config/php/php83-optimized.ini:/usr/local/lsws/lsphp83/etc/php/83/litespeed/php.ini
+      - ./idt_nuevo/config/litespeed/httpd_config.conf:/usr/local/lsws/conf/httpd_config.conf
+      - ./idt_nuevo/config/litespeed/vhosts_drupal10.conf:/usr/local/lsws/conf/vhosts/drupal10/vhconf.conf
 
       # Logs (para monitoreo)
       - ./idt_nuevo/logs/php:/var/log/php:rw

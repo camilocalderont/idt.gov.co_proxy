@@ -32,7 +32,7 @@ docker compose up -d
 
 # Esperar un poco para que los servicios estén listos
 echo "⏳ Esperando servicios..."
-sleep 3
+sleep 15
 
 # Verificar que los contenedores estén ejecutándose
 echo "✅ Verificando contenedores..."
