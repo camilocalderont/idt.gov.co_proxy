@@ -1,4 +1,0 @@
-
-Slick Extras 2.x-dev, 2023-09-18
---------------------------------
-- Initial 2.x commit.

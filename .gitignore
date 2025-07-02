@@ -7,13 +7,16 @@
 /mariadb/logs/
 
 # Drupal files
-/nuevo_idt/drupal/sites/default/files/
-/nuevo_idt/drupal/vendor/
-/anterior_idt/drupal/sites/default/files/
-/anterior_idt/drupal/vendor/
+/idt_nuevo/drupal/
+/idt_anterior/drupal/
+
+/idt_nuevo/drupal/sites/default/files/
+/idt_nuevo/drupal/vendor/
+/idt_anterior/drupal/sites/default/files/
+/idt_anterior/drupal/vendor/
 
 # Database backups and SQL files
-/nuevo_idt/configuraciones/idtcs360_bddrpl.sql
+/idt_nuevo/configuraciones/idtcs360_bddrpl.sql
 backup-*.tar.gz
 *.sql
 *.sql.gz
@@ -50,3 +53,6 @@ error_log
 CLAUDE.md
 GEMINI.md
 .env
+
+#Archivos de descarga
+*.crdownload

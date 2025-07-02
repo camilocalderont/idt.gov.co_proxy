@@ -1,3 +1,0 @@
-convert_bundles.entities:
-  deriver: 'Drupal\convert_bundles\Plugin\Derivative\ConvertBundlesLocalTask'
-  weight: 100

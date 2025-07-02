@@ -67,7 +67,7 @@ services:
       - "traefik.http.routers.redirect-root.middlewares=redirect-to-www"
       - "traefik.http.routers.redirect-root.entrypoints=websecure"
       - "traefik.http.routers.redirect-root.tls=true"
-      - "traefik.http.routers.redirect-root.service=nuevo_idt"
+      - "traefik.http.routers.redirect-root.service=idt_nuevo"
     ports:
       - "80:80"
       - "443:443"
@@ -79,39 +79,39 @@ services:
     networks:
       - red_idt_gov_co
   # Servicio 2: La instalación de nuevo idt.gov.co (validar creación de imagen con tecnología: Miscellaneous: HTTP/3; Web servers: LiteSpeed; Programming languages: PHP: 8.3.21; Drupal 10)
-  nuevo_idt:
+  idt_nuevo:
     image: imagen_pendiente_o_build_dockerfile
-    container_name: nuevo_idt
+    container_name: idt_nuevo
     restart: always
     volumes:
-      - /home/useridt/idt.gov.co/nuevo_idt:/var/www/html # o en el lugar donde se encuentra la carpeta del servidor de aplicaciones en LiteSpeed
-      - ./traefik/apache/000-default-nuevo_idt.conf:/etc/apache2/sites-available/000-default.conf # o el archivo de configuración personalizado para el nuevo idt.gov.co de LiteSpeed o php.ini y configuración de CSP
+      - /home/useridt/idt.gov.co/idt_nuevo:/var/www/html # o en el lugar donde se encuentra la carpeta del servidor de aplicaciones en LiteSpeed
+      - ./traefik/apache/000-default-idt_nuevo.conf:/etc/apache2/sites-available/000-default.conf # o el archivo de configuración personalizado para el nuevo idt.gov.co de LiteSpeed o php.ini y configuración de CSP
     networks:
       - red_idt_gov_co
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.nuevo_idt.rule=Host(`www.idt.gov.co`)"
-      - "traefik.http.routers.nuevo_idt.entrypoints=websecure"
-      - "traefik.http.routers.nuevo_idt.tls=true"
-      - "traefik.http.services.nuevo_idt.loadbalancer.server.port=80"
+      - "traefik.http.routers.idt_nuevo.rule=Host(`www.idt.gov.co`)"
+      - "traefik.http.routers.idt_nuevo.entrypoints=websecure"
+      - "traefik.http.routers.idt_nuevo.tls=true"
+      - "traefik.http.services.idt_nuevo.loadbalancer.server.port=80"
     depends_on:
       - traefik
     # Servicio 3: La instalación del anterior idt.gov.co  (validar creación de imagen con tecnología: Miscellaneous: HTTP/3; Web servers: LiteSpeed; Programming languages: PHP: la más compatible con Drupal 8; Drupal 8)
-  anterior_idt:
+  idt_anterior:
     image: imagen_pendiente_o_build_dockerfile
-    container_name: anterior_idt
+    container_name: idt_anterior
     restart: always
     volumes:
-      - /home/useridt/idt.gov.co/anterior_idt:/var/www/html # o en el lugar donde se encuentra la carpeta del servidor de aplicaciones en LiteSpeed
-      - ./traefik/apache/000-default-anterior_idt.conf:/etc/apache2/sites-available/000-default.conf # o el archivo de configuración personalizado para el nuevo idt.gov.co de LiteSpeed o php.ini y configuración de CSP
+      - /home/useridt/idt.gov.co/idt_anterior:/var/www/html # o en el lugar donde se encuentra la carpeta del servidor de aplicaciones en LiteSpeed
+      - ./traefik/apache/000-default-idt_anterior.conf:/etc/apache2/sites-available/000-default.conf # o el archivo de configuración personalizado para el nuevo idt.gov.co de LiteSpeed o php.ini y configuración de CSP
     networks:
       - red_idt_gov_co
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.anterior_idt.rule=Host(`anterior.idt.gov.co`)"
-      - "traefik.http.routers.anterior_idt.entrypoints=websecure"
-      - "traefik.http.routers.anterior_idt.tls=true"
-      - "traefik.http.services.anterior_idt.loadbalancer.server.port=80"
+      - "traefik.http.routers.idt_anterior.rule=Host(`anterior.idt.gov.co`)"
+      - "traefik.http.routers.idt_anterior.entrypoints=websecure"
+      - "traefik.http.routers.idt_anterior.tls=true"
+      - "traefik.http.services.idt_anterior.loadbalancer.server.port=80"
     depends_on:
       - traefik
 

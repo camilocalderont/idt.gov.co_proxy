@@ -10,8 +10,8 @@ echo "🚀 Iniciando IDT.gov.co..."
 
 # Crear directorios básicos si no existen
 echo "📁 Creando directorios necesarios..."
-mkdir -p nuevo_idt/logs/{php,litespeed}
-mkdir -p nuevo_idt/traefik/{certs,logs}
+mkdir -p idt_nuevo/logs/{php,litespeed}
+mkdir -p idt_nuevo/traefik/{certs,logs}
 
 # Verificar archivo docker-compose.yml
 if [[ ! -f "docker-compose.yml" ]]; then
@@ -43,7 +43,7 @@ if ! docker-compose ps | grep -q "Up"; then
 fi
 
 # Lista de contenedores para mantenimiento
-contenedores=("nuevo_idt" "anterior_idt")
+contenedores=("idt_nuevo" "idt_anterior")
 
 # Función básica de mantenimiento
 mantenimiento_basico() {
@@ -80,10 +80,10 @@ mantenimiento_basico() {
 # Ejecutar mantenimiento en cada contenedor
 for contenedor in "${contenedores[@]}"; do
     case $contenedor in
-        "nuevo_idt")
+        "idt_nuevo")
             mantenimiento_basico "$contenedor" "83"
             ;;
-        "anterior_idt")
+        "idt_anterior")
             mantenimiento_basico "$contenedor" "74"
             ;;
     esac

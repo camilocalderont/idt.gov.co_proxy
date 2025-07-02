@@ -64,7 +64,7 @@ services:
       - "traefik.http.routers.redirect-root.middlewares=redirect-to-www"
       - "traefik.http.routers.redirect-root.entrypoints=websecure"
       - "traefik.http.routers.redirect-root.tls=true"
-      - "traefik.http.routers.redirect-root.service=nuevo_idt"
+      - "traefik.http.routers.redirect-root.service=idt_nuevo"
     ports:
       - "80:80"
       - "443:443"
@@ -77,11 +77,11 @@ services:
       - red_idt_gov_co
 
   # Servicio 2: Nuevo sitio IDT (Drupal 10)
-  nuevo_idt:
+  idt_nuevo:
     build:
       context: .
       dockerfile: .dockerfiles/dockerfile-drupal10
-    container_name: nuevo_idt
+    container_name: idt_nuevo
     restart: unless-stopped
     environment:
       - DRUPAL_DB_HOST=mariadb
@@ -93,25 +93,25 @@ services:
       - PHP_VERSION=83
     volumes:
       # Código de aplicación (externo - stateless)
-      - ./nuevo_idt/drupal:/var/www/html:rw
+      - ./idt_nuevo/drupal:/var/www/html:rw
 
       # Configuraciones (solo lectura)
-      - ./nuevo_idt/config/php/php83-optimized.ini:/usr/local/lsws/lsphp83/etc/php/83/litespeed/php.ini:ro
-      - ./nuevo_idt/config/litespeed/httpd_config.conf:/usr/local/lsws/conf/httpd_config.conf:ro
-      - ./nuevo_idt/config/litespeed/vhosts_drupal10.conf:/usr/local/lsws/conf/vhosts/drupal10/vhconf.conf:ro
+      - ./idt_nuevo/config/php/php83-optimized.ini:/usr/local/lsws/lsphp83/etc/php/83/litespeed/php.ini:ro
+      - ./idt_nuevo/config/litespeed/httpd_config.conf:/usr/local/lsws/conf/httpd_config.conf:ro
+      - ./idt_nuevo/config/litespeed/vhosts_drupal10.conf:/usr/local/lsws/conf/vhosts/drupal10/vhconf.conf:ro
 
       # Logs (para monitoreo)
-      - ./nuevo_idt/logs/php:/var/log/php:rw
-      - ./nuevo_idt/logs/litespeed:/usr/local/lsws/logs:rw
+      - ./idt_nuevo/logs/php:/var/log/php:rw
+      - ./idt_nuevo/logs/litespeed:/usr/local/lsws/logs:rw
     networks:
       - red_idt_gov_co
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.nuevo_idt.rule=Host(`www.idt.gov.co`)"
-      - "traefik.http.routers.nuevo_idt.entrypoints=websecure"
-      - "traefik.http.routers.nuevo_idt.tls=true"
-      - "traefik.http.services.nuevo_idt.loadbalancer.server.port=80"
-      - "traefik.http.routers.nuevo_idt.middlewares=secure-headers@docker"
+      - "traefik.http.routers.idt_nuevo.rule=Host(`www.idt.gov.co`)"
+      - "traefik.http.routers.idt_nuevo.entrypoints=websecure"
+      - "traefik.http.routers.idt_nuevo.tls=true"
+      - "traefik.http.services.idt_nuevo.loadbalancer.server.port=80"
+      - "traefik.http.routers.idt_nuevo.middlewares=secure-headers@docker"
       - "traefik.http.middlewares.secure-headers.headers.customrequestheaders.X-Forwarded-Proto=https"
     depends_on:
       mariadb:
@@ -120,11 +120,11 @@ services:
         condition: service_started
 
   # Servicio 3: Sitio anterior IDT (Drupal 8)
-  anterior_idt:
+  idt_anterior:
     build:
       context: ./.dockerfiles/dockerfile-drupal8
       dockerfile: Dockerfile
-    container_name: anterior_idt
+    container_name: idt_anterior
     restart: unless-stopped
     environment:
       - DRUPAL_DB_HOST=mariadb
@@ -140,11 +140,11 @@ services:
       - red_idt_gov_co
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.anterior_idt.rule=Host(`anterior.idt.gov.co`)"
-      - "traefik.http.routers.anterior_idt.entrypoints=websecure"
-      - "traefik.http.routers.anterior_idt.tls=true"
-      - "traefik.http.services.anterior_idt.loadbalancer.server.port=80"
-      - "traefik.http.routers.anterior_idt.middlewares=secure-headers@docker"
+      - "traefik.http.routers.idt_anterior.rule=Host(`anterior.idt.gov.co`)"
+      - "traefik.http.routers.idt_anterior.entrypoints=websecure"
+      - "traefik.http.routers.idt_anterior.tls=true"
+      - "traefik.http.services.idt_anterior.loadbalancer.server.port=80"
+      - "traefik.http.routers.idt_anterior.middlewares=secure-headers@docker"
     depends_on:
       mariadb:
         condition: service_healthy

@@ -1,5 +1,0 @@
-prevnext.settings:
-  title: 'Prev / Next settings'
-  description: 'Configure which entity types will have the Prev/Next links on the view display.'
-  parent: system.admin_config_ui
-  route_name: prevnext.admin_settings

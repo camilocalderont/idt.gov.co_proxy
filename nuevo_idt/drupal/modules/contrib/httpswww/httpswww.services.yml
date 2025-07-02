@@ -1,6 +1,0 @@
-services:
-  httpswww.event_subscriber:
-    class: 'Drupal\httpswww\EventSubscriber\HttpsWwwRedirectSubscriber'
-    arguments: ['@config.factory', '@current_user']
-    tags:
-      - { name: 'event_subscriber' }
