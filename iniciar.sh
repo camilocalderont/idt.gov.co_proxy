@@ -21,14 +21,14 @@ fi
 
 # Detener contenedores existentes
 echo "⏹️  Deteniendo contenedores..."
-docker-compose down
+docker compose down
 
 # Construir e iniciar servicios
 echo "🔨 Construyendo imágenes..."
-docker-compose build
+docker compose build
 
 echo "▶️  Iniciando servicios..."
-docker-compose up -d
+docker compose up -d
 
 # Esperar un poco para que los servicios estén listos
 echo "⏳ Esperando servicios..."

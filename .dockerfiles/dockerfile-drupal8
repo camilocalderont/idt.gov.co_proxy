@@ -1,32 +1,28 @@
-# Dockerfile para Drupal 8 con LiteSpeed
+# Dockerfile para Drupal 8 con LiteSpeed - 100% Stateless
 FROM litespeedtech/openlitespeed:1.7.19-lsphp74
 
 # Información del mantenedor
 LABEL maintainer="IDT Developer"
-LABEL description="Drupal 8 with OpenLiteSpeed and PHP 7.4"
+LABEL description="Drupal 8 with LiteSpeed - Stateless Container for IDT Legacy Site"
 
 # Variables de entorno
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PHP_VERSION=74
-ENV DRUPAL_VERSION=8
+ENV TZ=America/Bogota
 
-# Actualizar sistema e instalar dependencias
+# Actualizar sistema e instalar dependencias básicas
 RUN apt-get update && apt-get install -y \
     curl \
     wget \
     git \
     unzip \
-    vim \
-    cron \
-    supervisor \
     mysql-client \
+    tzdata \
     && rm -rf /var/lib/apt/lists/*
 
-# Verificar instalación de PHP
-RUN /usr/local/lsws/lsphp${PHP_VERSION}/bin/php -v
-
-# Instalar extensiones PHP necesarias para Drupal 8
+# Instalar extensiones PHP para Drupal 8 (compatible con PHP 7.4)
 RUN apt-get update && apt-get install -y \
+    lsphp${PHP_VERSION}-common \
     lsphp${PHP_VERSION}-mysql \
     lsphp${PHP_VERSION}-curl \
     lsphp${PHP_VERSION}-gd \
@@ -37,40 +33,55 @@ RUN apt-get update && apt-get install -y \
     lsphp${PHP_VERSION}-imagick \
     lsphp${PHP_VERSION}-intl \
     lsphp${PHP_VERSION}-bcmath \
+    lsphp${PHP_VERSION}-bz2 \
+    lsphp${PHP_VERSION}-enchant \
+    lsphp${PHP_VERSION}-imap \
+    lsphp${PHP_VERSION}-memcached \
+    lsphp${PHP_VERSION}-pgsql \
+    lsphp${PHP_VERSION}-pspell \
+    lsphp${PHP_VERSION}-soap \
+    lsphp${PHP_VERSION}-sqlite3 \
+    lsphp${PHP_VERSION}-tidy \
+    lsphp${PHP_VERSION}-xsl \
     lsphp${PHP_VERSION}-json \
     && rm -rf /var/lib/apt/lists/*
 
-# Configurar directorio de trabajo
+# Instalar Composer (versión compatible con PHP 7.4)
+RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/lsphp${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer \
+    && chmod +x /usr/local/bin/composer
+
+# Instalar Drush para Drupal 8 (versión compatible)
+RUN /usr/local/lsws/lsphp${PHP_VERSION}/bin/php /usr/local/bin/composer global require drush/drush:^9.7 && \
+    ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
+
+# Crear directorios de logs y temporales (NO de aplicación)
+RUN mkdir -p /var/log/php && \
+    mkdir -p /tmp/opcache && \
+    mkdir -p /tmp/lshttpd && \
+    mkdir -p /tmp/lshttpd/swap && \
+    mkdir -p /tmp/lshttpd/quic && \
+    mkdir -p /tmp/sessions && \
+    touch /var/log/php_errors.log && \
+    chown -R nobody:nogroup /var/log/php && \
+    chown -R nobody:nogroup /tmp/opcache && \
+    chown -R nobody:nogroup /tmp/lshttpd && \
+    chown -R nobody:nogroup /tmp/sessions
+
+# Configurar timezone usando variable de entorno
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# Limpiar archivos innecesarios
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# NO crear directorios de aplicación - 100% stateless
+# El código viene por volumen externo
+
+# Configurar directorio de trabajo (solo para contexto)
 WORKDIR /var/www/html
 
-# Instalar Composer (versión compatible con PHP 7.4)
-RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/lsphp${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer
+# Exponer solo puerto HTTP (Traefik maneja HTTPS)
+EXPOSE 80
 
-# Configurar PHP para Drupal 8
-COPY php74.ini /usr/local/lsws/lsphp${PHP_VERSION}/etc/php/${PHP_VERSION}/litespeed/php.ini
-
-# Configurar LiteSpeed para Drupal 8
-COPY httpd_config_drupal8.conf /usr/local/lsws/conf/httpd_config.conf
-COPY vhosts_drupal8.conf /usr/local/lsws/conf/vhosts/drupal8/vhconf.conf
-
-# Crear directorios necesarios
-RUN mkdir -p /var/www/html/sites/default/files && \
-    mkdir -p /var/www/html/sites/default/files/translations && \
-    chown -R nobody:nogroup /var/www/html && \
-    chmod -R 755 /var/www/html/sites/default/files
-
-# Script de entrada personalizado
-COPY entrypoint_drupal8.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
-
-# Configurar permisos para Drupal 8
-RUN chown -R nobody:nogroup /var/www/html && \
-    find /var/www/html -type d -exec chmod 755 {} \; && \
-    find /var/www/html -type f -exec chmod 644 {} \;
-
-# Exponer puerto
-EXPOSE 80 443
-
-# Comando de entrada
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+# Comando directo - Sin entrypoint
 CMD ["/usr/local/lsws/bin/lshttpd", "-D"]

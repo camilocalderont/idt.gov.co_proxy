@@ -122,8 +122,8 @@ services:
   # Servicio 3: Sitio anterior IDT (Drupal 8)
   idt_anterior:
     build:
-      context: ./.dockerfiles/dockerfile-drupal8
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: .dockerfiles/dockerfile-drupal8
     container_name: idt_anterior
     restart: unless-stopped
     environment:

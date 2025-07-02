@@ -1,5 +1,5 @@
 # Dockerfile para Drupal 10 con LiteSpeed
-FROM litespeedtech/openlitespeed:1.7.19-lsphp83
+FROM litespeedtech/openlitespeed:1.8.3-lsphp83
 
 # Información del mantenedor
 LABEL maintainer="IDT Developer"
