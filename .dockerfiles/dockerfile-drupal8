@@ -60,8 +60,12 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && mkdir -p /var/log/php && touch /var/log/php_errors.log && chown -R nobody:nogroup /var/log/php \
     && apt-get clean
 
+# Script de inicio para otorgar permisos a /var/www/html al usuario 'nobody' cuando se haya montado el volumen.
+COPY .dockerfiles/scripts/entrypoint-litespeed.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
 WORKDIR /var/www/html
 
 EXPOSE 80
 
-CMD ["/usr/local/lsws/bin/lshttpd", "-D"]
+CMD ["/usr/local/bin/entrypoint.sh"]

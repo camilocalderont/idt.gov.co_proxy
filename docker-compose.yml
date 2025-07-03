@@ -6,13 +6,14 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DB_NAME_NUEVO},${DB_NAME_ANTIGUO}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
+      #MYSQL_DATABASE: ${DB_NAME_NUEVO},${DB_NAME_ANTIGUO}
+      #MYSQL_USER: ${DB_USER_NUEVO}
+      #MYSQL_PASSWORD: ${DB_PASSWORD_NUEVO}
       TZ: America/Bogota
     ports:
       - "33070:3306"
     volumes:
+      - ./mariadb/init/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./mariadb/data:/var/lib/mysql
       - ./mariadb/conf/my.cnf:/etc/mysql/my.cnf:ro
       - ./mariadb/logs:/var/log/mysql
@@ -87,8 +88,8 @@ services:
     environment:
       - DRUPAL_DB_HOST=mariadb
       - DRUPAL_DB_NAME=${DB_NAME_NUEVO}
-      - DRUPAL_DB_USER=${DB_USER}
-      - DRUPAL_DB_PASSWORD=${DB_PASSWORD}
+      - DRUPAL_DB_USER=${DB_USER_NUEVO}
+      - DRUPAL_DB_PASSWORD=${DB_PASSWORD_NUEVO}
       - DRUPAL_BASE_URL=https://www.idt.gov.co
       - TZ=America/Bogota
       - PHP_VERSION=83
@@ -99,7 +100,6 @@ services:
       # Configuraciones (solo lectura)
       - ./idt_nuevo/config/php/php83-optimized.ini:/usr/local/lsws/lsphp83/etc/php/83/litespeed/php.ini
       - ./idt_nuevo/config/litespeed/httpd_config.conf:/usr/local/lsws/conf/httpd_config.conf
-      - ./idt_nuevo/config/litespeed/vhosts_drupal10.conf:/usr/local/lsws/conf/vhosts/drupal10/vhconf.conf
 
       # Logs (para monitoreo)
       - ./idt_nuevo/logs/php:/var/log/php:rw
@@ -131,8 +131,8 @@ services:
     environment:
       - DRUPAL_DB_HOST=mariadb
       - DRUPAL_DB_NAME=${DB_NAME_ANTIGUO}
-      - DRUPAL_DB_USER=${DB_USER}
-      - DRUPAL_DB_PASSWORD=${DB_PASSWORD}
+      - DRUPAL_DB_USER=${DB_USER_ANTIGUO}
+      - DRUPAL_DB_PASSWORD=${DB_PASSWORD_ANTIGUO}
       - DRUPAL_BASE_URL=https://anterior.idt.gov.co
     volumes:
       - ./antiguo_sitio_web:/var/www/html

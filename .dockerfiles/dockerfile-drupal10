@@ -50,11 +50,14 @@ RUN mkdir -p /var/log/php && touch /var/log/php_errors.log && chown -R nobody:no
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get clean && rm -rf /tmp/* /var/tmp/*
 
+# Script de inicio para otorgar permisos a /var/www/html al usuario 'nobody' cuando se haya montado el volumen.
+COPY .dockerfiles/scripts/entrypoint-litespeed.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
 # Configurar directorio de trabajo (solo para contexto)
 WORKDIR /var/www/html
 
 # Exponer solo puerto HTTP (Traefik maneja HTTPS)
 EXPOSE 80
 
-# Comando directo - Sin entrypoint
-CMD ["/usr/local/lsws/bin/lshttpd", "-D"]
+CMD ["/usr/local/bin/entrypoint.sh"]
