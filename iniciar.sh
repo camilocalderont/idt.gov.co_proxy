@@ -11,7 +11,7 @@ echo "🚀 Iniciando IDT.gov.co..."
 # Crear directorios básicos si no existen
 echo "📁 Creando directorios necesarios..."
 mkdir -p idt_nuevo/logs/{php,litespeed}
-mkdir -p idt_nuevo/traefik/{certs,logs}
+mkdir -p traefik/{certs,logs}
 
 # Verificar archivo docker compose.yml
 if [[ ! -f "docker-compose.yml" ]]; then
