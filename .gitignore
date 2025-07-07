@@ -56,3 +56,7 @@ GEMINI.md
 
 #Archivos de descarga
 *.crdownload
+
+# Archivos de prueba iniciales
+ols-drupal-env/
+ols-drupal-env_1/

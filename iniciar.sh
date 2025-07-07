@@ -57,10 +57,15 @@ mantenimiento_basico() {
         return 1
     fi
 
-    # Actualizar composer si existe
+    # Gestionar composer si existe
     if docker exec "$contenedor" test -f /var/www/vhosts/localhost/html/web/composer.json 2>/dev/null; then
-        echo "📦 Actualizando composer en $contenedor..."
-        docker exec "$contenedor" composer install --no-dev --optimize-autoloader 2>/dev/null || echo "⚠️  Error con composer"
+        if docker exec "$contenedor" test -d /var/www/vhosts/localhost/html/web/vendor 2>/dev/null; then
+            echo "📦 Actualizando composer en $contenedor (vendor existe)..."
+            docker exec "$contenedor" composer update -n 2>/dev/null || echo "⚠️  Error con composer update"
+        else
+            echo "📦 Instalando composer en $contenedor (vendor no existe)..."
+            docker exec "$contenedor" composer install --no-dev --optimize-autoloader 2>/dev/null || echo "⚠️  Error con composer install"
+        fi
     fi
 
     # Limpiar OPcache

@@ -879,7 +879,7 @@ $databases['default']['default'] = array (
   'username' => 'idtcs360_us345',
   'password' => 'YwS;htY?RtOE',
   'prefix' => 'uunn_',
-  'host' => 'localhost',
+  'host' => 'mariadb',
   'port' => '3306',
   'isolation_level' => 'READ COMMITTED',
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
@@ -888,8 +888,10 @@ $databases['default']['default'] = array (
 );
 $settings['config_sync_directory'] = 'sites/default/files/config_forePzv2I49kHQQMYAj9OWvoxvq5v5ZCr84c_7HzBTVqGKFlCTU-eJDXHuSluzbZHIgXlWt3Wg/sync';
 
+#Nueva configuración para el IDT
 
-// $settings['trusted_host_patterns'] = [
-//   '^idt\.cs360\.com\.co$',
-//   '^www\.idt\.cs360\.com\.co$',
-// ];
+$settings['trusted_host_patterns'] = [
+  '^idt\.gov\.co$',
+  '^www\.idt\.gov\.co$',
+];
+$settings['base_url'] = 'https://www.idt.gov.co';
