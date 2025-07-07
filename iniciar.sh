@@ -43,7 +43,7 @@ if ! docker compose ps | grep -q "Up"; then
 fi
 
 # Lista de contenedores para mantenimiento
-contenedores=("idt_nuevo" "idt_anterior")
+contenedores=("idt_nuevo" "idt_test")
 
 # Función básica de mantenimiento
 mantenimiento_basico() {

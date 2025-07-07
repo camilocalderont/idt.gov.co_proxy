@@ -127,32 +127,81 @@ services:
         condition: service_started
 
   # Servicio 3: Sitio anterior IDT (Drupal 8)
-  idt_anterior:
+  #idt_anterior:
+  #  build:
+  #    context: .
+  #    dockerfile: .dockerfiles/dockerfile-drupal8
+  #  platform: linux/amd64
+  #  container_name: idt_anterior
+  #  restart: unless-stopped
+  #  environment:
+  #    - DRUPAL_DB_HOST=mariadb
+  #    - DRUPAL_DB_NAME=${DB_NAME_ANTIGUO}
+  #    - DRUPAL_DB_USER=${DB_USER_ANTIGUO}
+  #    - DRUPAL_DB_PASSWORD=${DB_PASSWORD_ANTIGUO}
+  #    - DRUPAL_BASE_URL=https://anterior.idt.gov.co
+  #  volumes:
+  #    - ./antiguo_sitio_web:/var/www/html
+  #    - ./config/php/php74.ini:/usr/local/lsws/lsphp74/etc/php/74/litespeed/php.ini:ro
+  #    - ./config/litespeed/drupal8:/usr/local/lsws/conf/vhosts/drupal8:ro
+  #  networks:
+  #    - red_idt_gov_co
+  #  labels:
+  #    - "traefik.enable=true"
+  #    - "traefik.http.routers.idt_anterior.rule=Host(`anterior.idt.gov.co`)"
+  #    - "traefik.http.routers.idt_anterior.entrypoints=websecure"
+  #    - "traefik.http.routers.idt_anterior.tls=true"
+  #    - "traefik.http.services.idt_anterior.loadbalancer.server.port=80"
+  #    - "traefik.http.routers.idt_anterior.middlewares=secure-headers@docker"
+  #  depends_on:
+  #    mariadb:
+  #      condition: service_healthy
+  #    traefik:
+  #      condition: service_started
+
+  # Servicio 2: Nuevo sitio IDT (Drupal 10)
+  idt_test:
     build:
       context: .
-      dockerfile: .dockerfiles/dockerfile-drupal8
+      dockerfile: .dockerfiles/dockerfile-drupal10-test
     platform: linux/amd64
-    container_name: idt_anterior
+    container_name: idt_test
     restart: unless-stopped
     environment:
       - DRUPAL_DB_HOST=mariadb
-      - DRUPAL_DB_NAME=${DB_NAME_ANTIGUO}
-      - DRUPAL_DB_USER=${DB_USER_ANTIGUO}
-      - DRUPAL_DB_PASSWORD=${DB_PASSWORD_ANTIGUO}
+      - DRUPAL_DB_NAME=${DB_NAME_NUEVO}
+      - DRUPAL_DB_USER=${DB_USER_NUEVO}
+      - DRUPAL_DB_PASSWORD=${DB_PASSWORD_NUEVO}
       - DRUPAL_BASE_URL=https://anterior.idt.gov.co
+      - TZ=America/Bogota
+      - PHP_VERSION=83
     volumes:
-      - ./antiguo_sitio_web:/var/www/html
-      - ./config/php/php74.ini:/usr/local/lsws/lsphp74/etc/php/74/litespeed/php.ini:ro
-      - ./config/litespeed/drupal8:/usr/local/lsws/conf/vhosts/drupal8:ro
+      # Código de aplicación (externo - stateless)
+      - ./idt_test/drupal:/var/www/html:rw
+
+      # Configuraciones (solo lectura)
+      - ./idt_test/config/php/php83-optimized.ini:/usr/local/lsws/lsphp83/etc/php/83/litespeed/php.ini:ro
+      - ./idt_test/config/litespeed/httpd_config.conf:/usr/local/lsws/conf/httpd_config.conf:ro
+
+      # Logs (para monitoreo)
+      - ./idt_test/logs/php:/var/log/php:rw
+      - ./idt_test/logs/litespeed:/usr/local/lsws/logs:rw
     networks:
       - red_idt_gov_co
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.idt_anterior.rule=Host(`anterior.idt.gov.co`)"
-      - "traefik.http.routers.idt_anterior.entrypoints=websecure"
-      - "traefik.http.routers.idt_anterior.tls=true"
-      - "traefik.http.services.idt_anterior.loadbalancer.server.port=80"
-      - "traefik.http.routers.idt_anterior.middlewares=secure-headers@docker"
+      - "traefik.http.routers.idt_test.rule=Host(`anterior.idt.gov.co`)"
+      - "traefik.http.routers.idt_test.entrypoints=websecure"
+      - "traefik.http.routers.idt_test.tls=true"
+      - "traefik.http.services.idt_test.loadbalancer.server.port=80"
+      - "traefik.http.routers.idt_test.middlewares=secure-headers@docker"
+      - "traefik.http.middlewares.secure-headers.headers.customrequestheaders.X-Forwarded-Proto=https"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/index.html"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
     depends_on:
       mariadb:
         condition: service_healthy

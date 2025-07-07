@@ -1,0 +1,107 @@
+# ==========================================
+# DOCKERFILE OPTIMIZADO PARA IDT_TEST
+# Basado en las lecciones del troubleshooting
+# ==========================================
+
+FROM litespeedtech/openlitespeed:1.8.3-lsphp83
+
+# Información del mantenedor
+LABEL maintainer="IDT Developer - Test Environment"
+LABEL description="Drupal 10.4.7 with OpenLiteSpeed and PHP 8.3.21 for IDT Testing"
+
+# Variables de entorno
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PHP_VERSION=83
+ENV PHP_DOT_VERSION=8.3
+ENV TZ=America/Bogota
+
+# ==========================================
+# 1. INSTALACIÓN DE PAQUETES BÁSICOS
+# ==========================================
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    # Herramientas básicas (agregadas según troubleshooting)
+    git \
+    unzip \
+    mysql-client \
+    netcat-openbsd \
+    wget \
+    curl \
+    procps \
+    # Extensiones PHP completas para Drupal
+    php${PHP_DOT_VERSION}-bcmath \
+    php${PHP_DOT_VERSION}-bz2 \
+    php${PHP_DOT_VERSION}-enchant \
+    php${PHP_DOT_VERSION}-gd \
+    php${PHP_DOT_VERSION}-imagick \
+    php${PHP_DOT_VERSION}-imap \
+    php${PHP_DOT_VERSION}-intl \
+    php${PHP_DOT_VERSION}-memcached \
+    php${PHP_DOT_VERSION}-mysql \
+    php${PHP_DOT_VERSION}-pgsql \
+    php${PHP_DOT_VERSION}-pspell \
+    php${PHP_DOT_VERSION}-shmop \
+    php${PHP_DOT_VERSION}-soap \
+    php${PHP_DOT_VERSION}-sqlite3 \
+    php${PHP_DOT_VERSION}-tidy \
+    php${PHP_DOT_VERSION}-xsl \
+    php${PHP_DOT_VERSION}-zip \
+    && rm -rf /var/lib/apt/lists/*
+
+# ==========================================
+# 2. INSTALACIÓN DE COMPOSER Y DRUSH
+# ==========================================
+RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/lsphp${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer
+RUN /usr/local/lsws/lsphp${PHP_VERSION}/bin/php /usr/local/bin/composer global require drush/drush:^12 \
+    && ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
+
+# ==========================================
+# 3. CONFIGURACIÓN DE DIRECTORIOS Y PERMISOS
+# ==========================================
+# Crear directorios necesarios según troubleshooting
+RUN mkdir -p /var/log/php \
+    && mkdir -p /tmp/lshttpd \
+    && mkdir -p /usr/local/lsws/logs
+
+# Configurar permisos básicos
+RUN chown -R nobody:nogroup /var/log/php \
+    && chown -R nobody:nogroup /tmp/lshttpd \
+    && chown -R nobody:nogroup /usr/local/lsws/logs
+
+# Crear archivos de log
+RUN touch /var/log/php/php_errors.log \
+    && chown nobody:nogroup /var/log/php/php_errors.log
+
+# ==========================================
+# 4. CONFIGURACIÓN DE ZONA HORARIA
+# ==========================================
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# ==========================================
+# 5. SCRIPT DE ENTRYPOINT MEJORADO
+# ==========================================
+COPY .dockerfiles/scripts/entrypoint-litespeed-test.sh /usr/local/bin/entrypoint-test.sh
+RUN chmod +x /usr/local/bin/entrypoint-test.sh
+
+# ==========================================
+# 6. CONFIGURACIÓN FINAL
+# ==========================================
+# Limpiar cache
+RUN apt-get clean && rm -rf /tmp/* /var/tmp/*
+
+# Configurar directorio de trabajo
+WORKDIR /var/www/html
+
+# Exponer solo puerto HTTP (Traefik maneja HTTPS)
+EXPOSE 80
+
+# ==========================================
+# 7. HEALTHCHECK OPTIMIZADO
+# ==========================================
+# Verificar que tanto LiteSpeed como PHP funcionen
+HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
+  CMD curl -f http://localhost/index.php || exit 1
+
+# ==========================================
+# 8. COMANDO DE INICIO
+# ==========================================
+CMD ["/usr/local/bin/entrypoint-test.sh"]
