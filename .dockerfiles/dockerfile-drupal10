@@ -19,6 +19,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     unzip \
     mysql-client \
+    netcat-openbsd \
+    wget \
+    curl \
     # Lista completa de extensiones de PHP para Drupal
     php${PHP_DOT_VERSION}-bcmath \
     php${PHP_DOT_VERSION}-bz2 \
@@ -40,13 +43,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # 2. INSTALAR COMPOSER Y DRUSH
-# Se usa una versión de Drush compatible con Drupal 8.
+# Se usa una versión de Drush compatible con Drupal 10.
 RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/lsphp${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer
-RUN /usr/local/lsws/lsphp${PHP_VERSION}/bin/php /usr/local/bin/composer global require drush/drush:^10 \
+RUN /usr/local/lsws/lsphp${PHP_VERSION}/bin/php /usr/local/bin/composer global require drush/drush:^12 \
     && ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
 
 # 3. CONFIGURACIÓN FINAL DEL ENTORNO
-RUN mkdir -p /var/log/php && touch /var/log/php_errors.log && chown -R nobody:nogroup /var/log/php
+RUN mkdir -p /var/log/php && touch /var/log/php/php_errors.log && chown -R nobody:nogroup /var/log/php
+RUN mkdir -p /tmp/lshttpd && chown -R nobody:nogroup /tmp/lshttpd
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get clean && rm -rf /tmp/* /var/tmp/*
 
@@ -59,5 +63,9 @@ WORKDIR /var/www/html
 
 # Exponer solo puerto HTTP (Traefik maneja HTTPS)
 EXPOSE 80
+
+# Healthcheck para verificar que el servicio está funcionando
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost/index.php || exit 1
 
 CMD ["/usr/local/bin/entrypoint.sh"]

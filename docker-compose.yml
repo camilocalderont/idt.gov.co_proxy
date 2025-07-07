@@ -98,8 +98,8 @@ services:
       - ./idt_nuevo/drupal:/var/www/html:rw
 
       # Configuraciones (solo lectura)
-      - ./idt_nuevo/config/php/php83-optimized.ini:/usr/local/lsws/lsphp83/etc/php/83/litespeed/php.ini
-      - ./idt_nuevo/config/litespeed/httpd_config.conf:/usr/local/lsws/conf/httpd_config.conf
+      - ./idt_nuevo/config/php/php83-optimized.ini:/usr/local/lsws/lsphp83/etc/php/83/litespeed/php.ini:ro
+      - ./idt_nuevo/config/litespeed/httpd_config.conf:/usr/local/lsws/conf/httpd_config.conf:ro
 
       # Logs (para monitoreo)
       - ./idt_nuevo/logs/php:/var/log/php:rw
@@ -114,6 +114,12 @@ services:
       - "traefik.http.services.idt_nuevo.loadbalancer.server.port=80"
       - "traefik.http.routers.idt_nuevo.middlewares=secure-headers@docker"
       - "traefik.http.middlewares.secure-headers.headers.customrequestheaders.X-Forwarded-Proto=https"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/index.html"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
     depends_on:
       mariadb:
         condition: service_healthy
