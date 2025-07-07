@@ -79,31 +79,28 @@ services:
 
   # Servicio 2: Nuevo sitio IDT (Drupal 10)
   idt_nuevo:
-    build:
-      context: .
-      dockerfile: .dockerfiles/dockerfile-drupal10
+    image: olsdrupal:83
     platform: linux/amd64
     container_name: idt_nuevo
-    restart: unless-stopped
-    environment:
-      - DRUPAL_DB_HOST=mariadb
-      - DRUPAL_DB_NAME=${DB_NAME_NUEVO}
-      - DRUPAL_DB_USER=${DB_USER_NUEVO}
-      - DRUPAL_DB_PASSWORD=${DB_PASSWORD_NUEVO}
-      - DRUPAL_BASE_URL=https://www.idt.gov.co
-      - TZ=America/Bogota
-      - PHP_VERSION=83
+    logging:
+      driver: none
+    env_file:
+      - .env
     volumes:
-      # Código de aplicación (externo - stateless)
-      - ./idt_nuevo/drupal:/var/www/html:rw
-
-      # Configuraciones (solo lectura)
-      - ./idt_nuevo/config/php/php83-optimized.ini:/usr/local/lsws/lsphp83/etc/php/83/litespeed/php.ini
-      - ./idt_nuevo/config/litespeed/httpd_config.conf:/usr/local/lsws/conf/httpd_config.conf
-
-      # Logs (para monitoreo)
-      - ./idt_nuevo/logs/php:/var/log/php:rw
-      - ./idt_nuevo/logs/litespeed:/usr/local/lsws/logs:rw
+      - ./idt_nuevo/lsws/conf:/usr/local/lsws/conf
+      - ./idt_nuevo/lsws/admin-conf:/usr/local/lsws/admin/conf
+      - ./idt_nuevo/bin/container:/usr/local/bin
+      - ./idt_nuevo/sites:/var/www/vhosts/
+      - ./idt_nuevo/acme:/root/.acme.sh/
+      - ./idt_nuevo/logs:/usr/local/lsws/logs/
+    ports:
+      #- 80:80
+      #- 443:443
+      #- 443:443/udp
+      - 7081:7080
+    restart: always
+    environment:
+      TZ: ${TZ}
     networks:
       - red_idt_gov_co
     labels:
@@ -122,22 +119,28 @@ services:
 
   # Servicio 3: Sitio anterior IDT (Drupal 8)
   idt_anterior:
-    build:
-      context: .
-      dockerfile: .dockerfiles/dockerfile-drupal8
+    image: olsdrupal:83
     platform: linux/amd64
     container_name: idt_anterior
-    restart: unless-stopped
-    environment:
-      - DRUPAL_DB_HOST=mariadb
-      - DRUPAL_DB_NAME=${DB_NAME_ANTIGUO}
-      - DRUPAL_DB_USER=${DB_USER_ANTIGUO}
-      - DRUPAL_DB_PASSWORD=${DB_PASSWORD_ANTIGUO}
-      - DRUPAL_BASE_URL=https://anterior.idt.gov.co
+    logging:
+      driver: none
+    env_file:
+      - .env
     volumes:
-      - ./antiguo_sitio_web:/var/www/html
-      - ./config/php/php74.ini:/usr/local/lsws/lsphp74/etc/php/74/litespeed/php.ini:ro
-      - ./config/litespeed/drupal8:/usr/local/lsws/conf/vhosts/drupal8:ro
+      - ./idt_anterior/lsws/conf:/usr/local/lsws/conf
+      - ./idt_anterior/lsws/admin-conf:/usr/local/lsws/admin/conf
+      - ./idt_anterior/bin/container:/usr/local/bin
+      - ./idt_anterior/sites:/var/www/vhosts/
+      - ./idt_anterior/acme:/root/.acme.sh/
+      - ./idt_anterior/logs:/usr/local/lsws/logs/
+    ports:
+      #- 80:80
+      #- 443:443
+      #- 443:443/udp
+      - 7082:7080
+    restart: always
+    environment:
+      TZ: ${TZ}
     networks:
       - red_idt_gov_co
     labels:
@@ -147,6 +150,7 @@ services:
       - "traefik.http.routers.idt_anterior.tls=true"
       - "traefik.http.services.idt_anterior.loadbalancer.server.port=80"
       - "traefik.http.routers.idt_anterior.middlewares=secure-headers@docker"
+      - "traefik.http.middlewares.secure-headers.headers.customrequestheaders.X-Forwarded-Proto=https"
     depends_on:
       mariadb:
         condition: service_healthy

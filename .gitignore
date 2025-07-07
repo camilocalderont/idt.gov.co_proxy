@@ -7,13 +7,13 @@
 /mariadb/logs/
 
 # Drupal files
-/idt_nuevo/drupal/
-/idt_anterior/drupal/
+/idt_nuevo/sites/localhost/html/
+/idt_anterior/sites/localhost/html/
 
-/idt_nuevo/drupal/sites/default/files/
-/idt_nuevo/drupal/vendor/
-/idt_anterior/drupal/sites/default/files/
-/idt_anterior/drupal/vendor/
+#conf files
+
+/idt_nuevo/lsws/conf
+/idt_anterior/lsws/conf
 
 # Database backups and SQL files
 /idt_nuevo/configuraciones/idtcs360_bddrpl.sql

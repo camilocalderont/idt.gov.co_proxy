@@ -1,0 +1,21 @@
+FROM --platform=linux/amd64 litespeedtech/openlitespeed-drush:1.8.2-lsphp83
+
+ENV PHP_VERSION=83
+
+# Instalar dependencias PHP disponibles
+RUN apt-get update && apt-get install -y \
+    lsphp83-common \
+    lsphp83-imap \
+    lsphp83-pspell \
+    lsphp83-tidy \
+    lsphp83-pgsql \
+    lsphp83-memcached \
+    lsphp83-sqlite3 \
+    lsphp83-igbinary \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+
+# Instalar Composer y Drush
+RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/lsphp${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer
+RUN /usr/local/lsws/lsphp${PHP_VERSION}/bin/php /usr/local/bin/composer global require drush/drush:^10 --with-all-dependencies \
+    && ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush

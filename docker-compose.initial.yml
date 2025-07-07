@@ -1,32 +1,35 @@
 services:
-  # Servicio 0: de base de datos (contemplando si se despliega en servidor adicional)
+  # Servicio 0: Base de datos MariaDB
   mariadb:
-    image: mariadb:10.3
+    image: mariadb:10.6
     container_name: mariadb
-    restart: always
+    restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: root
-      MYSQL_USER: root
-      MYSQL_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      #MYSQL_DATABASE: ${DB_NAME_NUEVO},${DB_NAME_ANTIGUO}
+      #MYSQL_USER: ${DB_USER_NUEVO}
+      #MYSQL_PASSWORD: ${DB_PASSWORD_NUEVO}
+      TZ: America/Bogota
     ports:
-      - 33069:3306
+      - "33070:3306"
     volumes:
-      - ./MariaDB/schemas:/var/lib/mysql
-      - ./MariaDB/conf/my.cnf:/etc/mysql/my.cnf
+      - ./mariadb/init/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./mariadb/data:/var/lib/mysql
+      - ./mariadb/conf/my.cnf:/etc/mysql/my.cnf:ro
+      - ./mariadb/logs:/var/log/mysql
     networks:
       - red_idt_gov_co
+    command: --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
 
-
-
-
-
-
-
-  # Servicio 1: proxy
+  # Servicio 1: Proxy Traefik
   traefik:
-    image: traefik:v2.10.5
+    image: traefik:v3.0
     container_name: traefik
+    restart: unless-stopped
     command:
       - "--api.dashboard=true"
       - "--providers.docker=true"
@@ -37,16 +40,11 @@ services:
       - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
       - "--entrypoints.websecure.address=:443"
       - "--log.level=DEBUG"
-      - "--log.filePath=/logs/access.log"
+      - "--log.filePath=/logs/traefik.log"
       - "--accesslog=true"
       - "--accesslog.filepath=/logs/access.log"
       - "--accesslog.bufferingsize=1000"
       - "--providers.file.filename=/dynamic_conf.yml"
-      - "--metrics=true"
-      - "--metrics.prometheus=true"
-      - "--metrics.prometheus.entryPoint=websecure"
-      - "--metrics.prometheus.addEntryPointsLabels=true"
-      - "--metrics.prometheus.addServicesLabels=true"
     labels:
       - "traefik.enable=true"
       # Dashboard de Traefik
@@ -74,18 +72,38 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik/logs:/logs
-      - ./traefik/dynamic_conf.yml:/dynamic_conf.yml
+      - ./traefik/dynamic_conf.yml:/dynamic_conf.yml:ro
       - ./traefik/certs:/certs:ro
     networks:
       - red_idt_gov_co
-  # Servicio 2: La instalación de nuevo idt.gov.co (validar creación de imagen con tecnología: Miscellaneous: HTTP/3; Web servers: LiteSpeed; Programming languages: PHP: 8.3.21; Drupal 10)
+
+  # Servicio 2: Nuevo sitio IDT (Drupal 10)
   idt_nuevo:
-    image: imagen_pendiente_o_build_dockerfile
+    build:
+      context: .
+      dockerfile: .dockerfiles/dockerfile-drupal10
+    platform: linux/amd64
     container_name: idt_nuevo
-    restart: always
+    restart: unless-stopped
+    environment:
+      - DRUPAL_DB_HOST=mariadb
+      - DRUPAL_DB_NAME=${DB_NAME_NUEVO}
+      - DRUPAL_DB_USER=${DB_USER_NUEVO}
+      - DRUPAL_DB_PASSWORD=${DB_PASSWORD_NUEVO}
+      - DRUPAL_BASE_URL=https://www.idt.gov.co
+      - TZ=America/Bogota
+      - PHP_VERSION=83
     volumes:
-      - /home/useridt/idt.gov.co/idt_nuevo:/var/www/html # o en el lugar donde se encuentra la carpeta del servidor de aplicaciones en LiteSpeed
-      - ./traefik/apache/000-default-idt_nuevo.conf:/etc/apache2/sites-available/000-default.conf # o el archivo de configuración personalizado para el nuevo idt.gov.co de LiteSpeed o php.ini y configuración de CSP
+      # Código de aplicación (externo - stateless)
+      - ./idt_nuevo/drupal:/var/www/html:rw
+
+      # Configuraciones (solo lectura)
+      - ./idt_nuevo/config/php/php83-optimized.ini:/usr/local/lsws/lsphp83/etc/php/83/litespeed/php.ini
+      - ./idt_nuevo/config/litespeed/httpd_config.conf:/usr/local/lsws/conf/httpd_config.conf
+
+      # Logs (para monitoreo)
+      - ./idt_nuevo/logs/php:/var/log/php:rw
+      - ./idt_nuevo/logs/litespeed:/usr/local/lsws/logs:rw
     networks:
       - red_idt_gov_co
     labels:
@@ -94,16 +112,32 @@ services:
       - "traefik.http.routers.idt_nuevo.entrypoints=websecure"
       - "traefik.http.routers.idt_nuevo.tls=true"
       - "traefik.http.services.idt_nuevo.loadbalancer.server.port=80"
+      - "traefik.http.routers.idt_nuevo.middlewares=secure-headers@docker"
+      - "traefik.http.middlewares.secure-headers.headers.customrequestheaders.X-Forwarded-Proto=https"
     depends_on:
-      - traefik
-    # Servicio 3: La instalación del anterior idt.gov.co  (validar creación de imagen con tecnología: Miscellaneous: HTTP/3; Web servers: LiteSpeed; Programming languages: PHP: la más compatible con Drupal 8; Drupal 8)
+      mariadb:
+        condition: service_healthy
+      traefik:
+        condition: service_started
+
+  # Servicio 3: Sitio anterior IDT (Drupal 8)
   idt_anterior:
-    image: imagen_pendiente_o_build_dockerfile
+    build:
+      context: .
+      dockerfile: .dockerfiles/dockerfile-drupal8
+    platform: linux/amd64
     container_name: idt_anterior
-    restart: always
+    restart: unless-stopped
+    environment:
+      - DRUPAL_DB_HOST=mariadb
+      - DRUPAL_DB_NAME=${DB_NAME_ANTIGUO}
+      - DRUPAL_DB_USER=${DB_USER_ANTIGUO}
+      - DRUPAL_DB_PASSWORD=${DB_PASSWORD_ANTIGUO}
+      - DRUPAL_BASE_URL=https://anterior.idt.gov.co
     volumes:
-      - /home/useridt/idt.gov.co/idt_anterior:/var/www/html # o en el lugar donde se encuentra la carpeta del servidor de aplicaciones en LiteSpeed
-      - ./traefik/apache/000-default-idt_anterior.conf:/etc/apache2/sites-available/000-default.conf # o el archivo de configuración personalizado para el nuevo idt.gov.co de LiteSpeed o php.ini y configuración de CSP
+      - ./antiguo_sitio_web:/var/www/html
+      - ./config/php/php74.ini:/usr/local/lsws/lsphp74/etc/php/74/litespeed/php.ini:ro
+      - ./config/litespeed/drupal8:/usr/local/lsws/conf/vhosts/drupal8:ro
     networks:
       - red_idt_gov_co
     labels:
@@ -112,13 +146,20 @@ services:
       - "traefik.http.routers.idt_anterior.entrypoints=websecure"
       - "traefik.http.routers.idt_anterior.tls=true"
       - "traefik.http.services.idt_anterior.loadbalancer.server.port=80"
+      - "traefik.http.routers.idt_anterior.middlewares=secure-headers@docker"
     depends_on:
-      - traefik
+      mariadb:
+        condition: service_healthy
+      traefik:
+        condition: service_started
 
-# se confirman los volumenes
+# Definición de volúmenes
 volumes:
-  traefik:
-  MariaDB: # opcional
+  mariadb_data:
+    driver: local
+
+# Definición de redes
 networks:
   red_idt_gov_co:
     name: red_idt_gov_co
+    driver: bridge

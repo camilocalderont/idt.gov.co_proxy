@@ -10,7 +10,6 @@ echo "🚀 Iniciando IDT.gov.co..."
 
 # Crear directorios básicos si no existen
 echo "📁 Creando directorios necesarios..."
-mkdir -p idt_nuevo/logs/{php,litespeed}
 mkdir -p traefik/{certs,logs}
 
 # Verificar archivo docker compose.yml
@@ -59,7 +58,7 @@ mantenimiento_basico() {
     fi
 
     # Actualizar composer si existe
-    if docker exec "$contenedor" test -f /var/www/html/composer.json 2>/dev/null; then
+    if docker exec "$contenedor" test -f /var/www/vhosts/localhost/html/web/composer.json 2>/dev/null; then
         echo "📦 Actualizando composer en $contenedor..."
         docker exec "$contenedor" composer install --no-dev --optimize-autoloader 2>/dev/null || echo "⚠️  Error con composer"
     fi
@@ -69,9 +68,9 @@ mantenimiento_basico() {
     docker exec "$contenedor" /usr/local/lsws/lsphp${php_version}/bin/php -r "opcache_reset();" 2>/dev/null || echo "⚠️  Error limpiando OPcache"
 
     # Ejecutar comandos Drupal básicos si existe drush
-    if docker exec "$contenedor" test -f /var/www/html/vendor/bin/drush 2>/dev/null; then
+    if docker exec "$contenedor" test -f /var/www/vhosts/localhost/html/web/vendor/bin/drush 2>/dev/null; then
         echo "🔄 Limpiando cache Drupal en $contenedor..."
-        docker exec "$contenedor" /var/www/html/vendor/bin/drush cache:rebuild 2>/dev/null || echo "⚠️  Error con drush cache"
+        docker exec "$contenedor" /var/www/vhosts/localhost/html/web/vendor/bin/drush cache:rebuild 2>/dev/null || echo "⚠️  Error con drush cache"
     fi
 
     echo "✅ Mantenimiento completado en $contenedor"
@@ -84,7 +83,7 @@ for contenedor in "${contenedores[@]}"; do
             mantenimiento_basico "$contenedor" "83"
             ;;
         "idt_anterior")
-            mantenimiento_basico "$contenedor" "74"
+            mantenimiento_basico "$contenedor" "83"
             ;;
     esac
 done
