@@ -1,63 +1,22 @@
-# Dockerfile para Drupal 10 con LiteSpeed
-FROM litespeedtech/openlitespeed:1.8.3-lsphp83
+#https://hub.docker.com/r/litespeedtech/openlitespeed-drush/tags?name=php83
+FROM --platform=linux/amd64 litespeedtech/openlitespeed-drush:1.8.2-lsphp83
 
-# Información del mantenedor
-LABEL maintainer="IDT Developer"
-LABEL description="Drupal 10.4.7 with OpenLiteSpeed and PHP 8.3.21 for IDT"
+ENV PHP_VERSION=lsphp83
 
-# Variables de entorno
-ENV DEBIAN_FRONTEND=noninteractive
-ENV PHP_VERSION=83
-ENV PHP_DOT_VERSION=8.3
-ENV TZ=America/Bogota
+# Instalar dependencias PHP disponibles
+RUN apt-get update && apt-get install -y \
+    ${PHP_VERSION}-common \
+    ${PHP_VERSION}-imap \
+    ${PHP_VERSION}-pspell \
+    ${PHP_VERSION}-tidy \
+    ${PHP_VERSION}-pgsql \
+    ${PHP_VERSION}-memcached \
+    ${PHP_VERSION}-sqlite3 \
+    ${PHP_VERSION}-igbinary \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# 1. INSTALAR TODO CON APT EN UN SOLO PASO
-# Se instalan todas las extensiones de PHP directamente desde los repositorios.
-# Este método es más estable y evita usar scripts no disponibles.
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    # Herramientas básicas
-    git \
-    unzip \
-    mysql-client \
-    # Lista completa de extensiones de PHP para Drupal
-    php${PHP_DOT_VERSION}-bcmath \
-    php${PHP_DOT_VERSION}-bz2 \
-    php${PHP_DOT_VERSION}-enchant \
-    php${PHP_DOT_VERSION}-gd \
-    php${PHP_DOT_VERSION}-imagick \
-    php${PHP_DOT_VERSION}-imap \
-    php${PHP_DOT_VERSION}-intl \
-    php${PHP_DOT_VERSION}-memcached \
-    php${PHP_DOT_VERSION}-mysql \
-    php${PHP_DOT_VERSION}-pgsql \
-    php${PHP_DOT_VERSION}-pspell \
-    php${PHP_DOT_VERSION}-shmop \
-    php${PHP_DOT_VERSION}-soap \
-    php${PHP_DOT_VERSION}-sqlite3 \
-    php${PHP_DOT_VERSION}-tidy \
-    php${PHP_DOT_VERSION}-xsl \
-    php${PHP_DOT_VERSION}-zip \
-    && rm -rf /var/lib/apt/lists/*
 
-# 2. INSTALAR COMPOSER Y DRUSH
-# Se usa una versión de Drush compatible con Drupal 8.
-RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/lsphp${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer
-RUN /usr/local/lsws/lsphp${PHP_VERSION}/bin/php /usr/local/bin/composer global require drush/drush:^10 \
+# Instalar Composer y Drush Compabilidad: https://www.drush.org/11.x/install/
+RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer
+RUN /usr/local/lsws/${PHP_VERSION}/bin/php /usr/local/bin/composer global require drush/drush:^12 --with-all-dependencies \
     && ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
-
-# 3. CONFIGURACIÓN FINAL DEL ENTORNO
-RUN mkdir -p /var/log/php && touch /var/log/php_errors.log && chown -R nobody:nogroup /var/log/php
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-RUN apt-get clean && rm -rf /tmp/* /var/tmp/*
-
-# Script de inicio para otorgar permisos a /var/www/html al usuario 'nobody' cuando se haya montado el volumen.
-COPY .dockerfiles/scripts/entrypoint-litespeed.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
-
-# Configurar directorio de trabajo (solo para contexto)
-WORKDIR /var/www/html
-
-# Exponer solo puerto HTTP (Traefik maneja HTTPS)
-EXPOSE 80
-
-CMD ["/usr/local/bin/entrypoint.sh"]

@@ -119,7 +119,7 @@ services:
 
   # Servicio 3: Sitio anterior IDT (Drupal 8)
   idt_anterior:
-    image: olsdrupal:83
+    image: olsdrupal:74
     platform: linux/amd64
     container_name: idt_anterior
     logging:

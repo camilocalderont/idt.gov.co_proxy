@@ -1,71 +1,22 @@
-# Dockerfile para Drupal 8 con LiteSpeed - Método PPA (Corregido)
-FROM litespeedtech/openlitespeed:1.8.1-lsphp74
+#https://hub.docker.com/r/litespeedtech/openlitespeed-drush/tags?name=php74
+FROM litespeedtech/openlitespeed-drush:1.7.16-lsphp74
 
-# Información del mantenedor
-LABEL maintainer="IDT Developer"
-LABEL description="Drupal 8 with LiteSpeed - Stateless Container for IDT Legacy Site"
+ENV PHP_VERSION=lsphp74
 
-# Variables de entorno
-ENV DEBIAN_FRONTEND=noninteractive
-ENV PHP_VERSION=74
-ENV PHP_DOT_VERSION=7.4
-ENV TZ=America/Bogota
+# Instalar dependencias PHP disponibles
+RUN apt-get update && apt-get install -y \
+    ${PHP_VERSION}-common \
+    ${PHP_VERSION}-imap \
+    ${PHP_VERSION}-pspell \
+    ${PHP_VERSION}-tidy \
+    ${PHP_VERSION}-pgsql \
+    ${PHP_VERSION}-memcached \
+    ${PHP_VERSION}-sqlite3 \
+    ${PHP_VERSION}-igbinary \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# 1. AÑADIR EL REPOSITORIO PPA PARA VERSIONES ANTIGUAS DE PHP
-# Se añade 'gpg-agent', la dependencia que faltaba para importar la llave del PPA.
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    software-properties-common \
-    gpg-agent \
-    && add-apt-repository ppa:ondrej/php \
-    && apt-get update
 
-# 2. INSTALAR DEPENDENCIAS Y EXTENSIONES DESDE EL NUEVO REPOSITORIO
-RUN apt-get install -y --no-install-recommends \
-    # Herramientas básicas
-    curl \
-    wget \
-    git \
-    unzip \
-    mysql-client \
-    tzdata \
-    # Lista completa de extensiones de PHP 7.4
-    php${PHP_DOT_VERSION}-bcmath \
-    php${PHP_DOT_VERSION}-bz2 \
-    php${PHP_DOT_VERSION}-enchant \
-    php${PHP_DOT_VERSION}-gd \
-    php${PHP_DOT_VERSION}-imagick \
-    php${PHP_DOT_VERSION}-imap \
-    php${PHP_DOT_VERSION}-intl \
-    php${PHP_DOT_VERSION}-memcached \
-    php${PHP_DOT_VERSION}-mysql \
-    php${PHP_DOT_VERSION}-pgsql \
-    php${PHP_DOT_VERSION}-pspell \
-    php${PHP_DOT_VERSION}-shmop \
-    php${PHP_DOT_VERSION}-soap \
-    php${PHP_DOT_VERSION}-sqlite3 \
-    php${PHP_DOT_VERSION}-tidy \
-    php${PHP_DOT_VERSION}-xsl \
-    php${PHP_DOT_VERSION}-zip \
-    php${PHP_DOT_VERSION}-xml \
-    php${PHP_DOT_VERSION}-mbstring \
-    && rm -rf /var/lib/apt/lists/*
-
-# 3. INSTALAR COMPOSER Y DRUSH
-RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/lsphp${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer
-RUN /usr/local/lsws/lsphp${PHP_VERSION}/bin/php /usr/local/bin/composer global require drush/drush:^10 \
+# Instalar Composer y Drush
+RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer
+RUN /usr/local/lsws/${PHP_VERSION}/bin/php /usr/local/bin/composer global require drush/drush:^10 --with-all-dependencies \
     && ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
-
-# 4. CONFIGURACIÓN FINAL DEL ENTORNO
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
-    && mkdir -p /var/log/php && touch /var/log/php_errors.log && chown -R nobody:nogroup /var/log/php \
-    && apt-get clean
-
-# Script de inicio para otorgar permisos a /var/www/html al usuario 'nobody' cuando se haya montado el volumen.
-COPY .dockerfiles/scripts/entrypoint-litespeed.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
-
-WORKDIR /var/www/html
-
-EXPOSE 80
-
-CMD ["/usr/local/bin/entrypoint.sh"]
