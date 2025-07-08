@@ -79,7 +79,7 @@ services:
 
   # Servicio 2: Nuevo sitio IDT (Drupal 10)
   idt_nuevo:
-    image: olsdrupal:83
+    image: idartestecnologia/olsdrupal:83
     platform: linux/amd64
     container_name: idt_nuevo
     logging:
@@ -93,6 +93,10 @@ services:
       - ./idt_nuevo/sites:/var/www/vhosts/
       - ./idt_nuevo/acme:/root/.acme.sh/
       - ./idt_nuevo/logs:/usr/local/lsws/logs/
+      # Configuración de PHP
+      - ./idt_nuevo/lsws/conf/99-php.ini:/usr/local/lsws/lsphp83/etc/php/8.3/mods-available/99-php.ini:ro
+      - ./idt_nuevo/php_sessions:/tmp/php_sessions
+      - ./idt_nuevo/logs/php_errors.log:/var/log/php_errors.log
     ports:
       #- 80:80
       #- 443:443
@@ -119,7 +123,7 @@ services:
 
   # Servicio 3: Sitio anterior IDT (Drupal 8)
   idt_anterior:
-    image: olsdrupal:74
+    image: idartestecnologia/olsdrupal:74
     platform: linux/amd64
     container_name: idt_anterior
     logging:
@@ -133,6 +137,10 @@ services:
       - ./idt_anterior/sites:/var/www/vhosts/
       - ./idt_anterior/acme:/root/.acme.sh/
       - ./idt_anterior/logs:/usr/local/lsws/logs/
+      # Configuración de PHP
+      - ./idt_anterior/lsws/conf/99-php.ini:/usr/local/lsws/lsphp74/etc/php/7.4/mods-available/99-php.ini:ro
+      - ./idt_anterior/php_sessions:/tmp/php_sessions
+      - ./idt_anterior/logs/php_errors.log:/var/log/php_errors.log
     ports:
       #- 80:80
       #- 443:443

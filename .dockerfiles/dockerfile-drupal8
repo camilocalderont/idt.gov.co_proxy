@@ -20,3 +20,5 @@ RUN apt-get update && apt-get install -y \
 RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer
 RUN /usr/local/lsws/${PHP_VERSION}/bin/php /usr/local/bin/composer global require drush/drush:^10 --with-all-dependencies \
     && ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
+
+# docker buildx build --platform="linux/amd64" -t idartestecnologia/olsdrupal:74 -f dockerfile-drupal8 --load .

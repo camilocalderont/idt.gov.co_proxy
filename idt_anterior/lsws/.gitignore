@@ -1,2 +1,5 @@
 *
+!conf/
 !.gitignore
+conf/*
+!conf/99-php.ini
