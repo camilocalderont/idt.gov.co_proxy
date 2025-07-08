@@ -26,6 +26,7 @@
 backup-*.tar.gz
 *.sql
 *.sql.gz
+*.sql.tar.gz
 
 # Python files and virtual environment
 combine_code.py

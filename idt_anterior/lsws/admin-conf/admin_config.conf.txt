@@ -1,0 +1,28 @@
+enablecoredump 1
+sessiontimeout 3600
+
+accesscontrol  {
+    allow ALL
+}
+
+listener adminListener {
+    certfile $SERVER_ROOT/admin/conf/webadmin.crt
+    clientverify 0
+    address *:7080
+    secure 1
+    keyfile $SERVER_ROOT/admin/conf/webadmin.key
+}
+
+accesslog $SERVER_ROOT/admin/logs/access.log {
+    loguseragent 1
+    logreferer 1
+    useserver 0
+    rollingsize 10M
+    keepdays 90
+}
+
+errorlog $SERVER_ROOT/admin/logs/error.log {
+    rollingsize 10M
+    loglevel INFO
+    useserver 0
+}
