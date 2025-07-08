@@ -9,11 +9,17 @@
 # Drupal files
 /idt_nuevo/sites/localhost/html/
 /idt_anterior/sites/localhost/html/
+/idt_intranet/sites/localhost/html/
 
 #conf files
 
-/idt_nuevo/lsws/conf
-/idt_anterior/lsws/conf
+# Ignorar todo en estas carpetas excepto 99-php.ini
+/idt_nuevo/lsws/conf/*
+!/idt_nuevo/lsws/conf/99-php.ini
+/idt_anterior/lsws/conf/*
+!/idt_anterior/lsws/conf/99-php.ini
+/idt_intranet/lsws/conf/*
+!/idt_intranet/lsws/conf/99-php.ini
 
 # Database backups and SQL files
 /idt_nuevo/configuraciones/idtcs360_bddrpl.sql
@@ -60,4 +66,4 @@ GEMINI.md
 # Archivos de prueba iniciales
 ols-drupal-env/
 ols-drupal-env_1/
-ols-dockerfiles/
+ols-dockerfiles
