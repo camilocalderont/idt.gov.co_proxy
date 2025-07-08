@@ -82,8 +82,6 @@ services:
     image: idartestecnologia/olsdrupal:83
     platform: linux/amd64
     container_name: idt_nuevo
-    logging:
-      driver: none
     env_file:
       - .env
     volumes:
@@ -126,8 +124,6 @@ services:
     image: idartestecnologia/olsdrupal:74
     platform: linux/amd64
     container_name: idt_anterior
-    logging:
-      driver: none
     env_file:
       - .env
     volumes:

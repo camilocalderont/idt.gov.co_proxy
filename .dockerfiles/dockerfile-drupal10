@@ -15,14 +15,6 @@ RUN apt-get update && apt-get install -y \
     ${PHP_VERSION}-igbinary \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && \
-    apt-get install -y php8.3-odbc unixodbc-dev php8.3-sysvshm && \
-    echo "extension=odbc.so" > /usr/local/lsws/lsphp83/etc/php/8.3/mods-available/odbc.ini && \
-    echo "extension=pdo_odbc.so" > /usr/local/lsws/lsphp83/etc/php/8.3/mods-available/pdo_odbc.ini && \
-    echo "extension=shmop.so" > /usr/local/lsws/lsphp83/etc/php/8.3/mods-available/shmop.ini && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
 
 # Instalar Composer y Drush Compabilidad: https://www.drush.org/11.x/install/
 RUN curl -sS https://getcomposer.org/installer | /usr/local/lsws/${PHP_VERSION}/bin/php -- --install-dir=/usr/local/bin --filename=composer
