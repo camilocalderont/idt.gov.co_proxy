@@ -5,10 +5,10 @@
 # --- Configuración ---
 USUARIO_ORIGEN="User_idt"
 IP_ORIGEN="10.216.153.70"
-RUTA_ORIGEN="/DATA/www/htdocs/gavias/"
+RUTA_ORIGEN="/DATA/www/htdocsI/intranetnueva/"
 RUTA_LLAVE_PRIVADA="/home/useridt/.ssh/id_rsa"
 
-RUTA_DESTINO="/data/idt.gov.co_proxy/idt_anterior/sites/localhost/html/web/"
+RUTA_DESTINO="/data/idt.gov.co_proxy/idt_intranet/sites/localhost/html/web/"
 
 # --- Ejecución de Rsync ---
 echo "▶️  Iniciando la sincronización desde $IP_ORIGEN..."

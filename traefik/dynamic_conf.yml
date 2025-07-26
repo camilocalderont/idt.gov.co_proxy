@@ -1,11 +1,10 @@
 tls:
   certificates:
-    - certFile: /certs/fullchain.pem
-      keyFile: /certs/privkey.pem
-      stores:
-        - default
-  stores:
-    default:
-      defaultCertificate:
-        certFile: /certs/fullchain.pem
-        keyFile: /certs/privkey.pem
+    - certFile: /certs/idt.gov.co/fullchain.pem
+      keyFile:  /certs/idt.gov.co/private.key
+    - certFile: /certs/anterior.idt.gov.co/fullchain.pem
+      keyFile:  /certs/anterior.idt.gov.co/private.key
+    - certFile: /certs/intranet.idt.gov.co/fullchain.pem
+      keyFile:  /certs/intranet.idt.gov.co/private.key
+    - certFile: /certs/observatorio.idt.gov.co/fullchain.pem
+      keyFile:  /certs/observatorio.idt.gov.co/private.key

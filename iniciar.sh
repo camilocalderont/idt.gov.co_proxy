@@ -42,7 +42,7 @@ if ! docker compose ps | grep -q "Up"; then
 fi
 
 # Lista de contenedores para mantenimiento
-contenedores=("idt_nuevo" "idt_anterior")
+contenedores=("idt_nuevo" "idt_anterior" "idt_intranet" "idt_observatorio")
 
 # Función básica de mantenimiento
 mantenimiento_basico() {
@@ -88,7 +88,13 @@ for contenedor in "${contenedores[@]}"; do
             mantenimiento_basico "$contenedor" "83"
             ;;
         "idt_anterior")
+            mantenimiento_basico "$contenedor" "74"
+            ;;
+        "idt_observatorio")
             mantenimiento_basico "$contenedor" "83"
+            ;;
+        "idt_intranet")
+            mantenimiento_basico "$contenedor" "74"
             ;;
     esac
 done

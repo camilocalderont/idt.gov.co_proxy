@@ -1,0 +1,59 @@
+vhroot /var/www/vhosts/$VH_NAME/
+restrained 1
+setuidmode 2
+configfile $SERVER_ROOT/conf/vhosts/$VH_NAME/vhconf.conf
+allowsymbollink 1
+enablescript 1
+
+virtualhostconfig  {
+    docroot $VH_ROOT/html/web/
+    enablegzip 1
+
+    accesscontrol  {
+        allow *
+    }
+
+    expires  {
+        enableexpires 1
+    }
+
+    context / {
+        location $DOC_ROOT/
+        allowbrowse 1
+
+        rewrite  {
+            unknownkeywords rewritefile .htaccess
+            rules rewritefile .htaccess
+        }
+    }
+
+    accesslog $SERVER_ROOT/logs/$VH_NAME.access.log {
+        rollingsize 100M
+        keepdays 7
+        useserver 0
+        compressarchive 1
+    }
+
+    vhssl  {
+        keyfile /root/.acme.sh/certs/$VH_NAME/$VH_NAME.key
+        certfile /root/.acme.sh/certs/$VH_NAME/fullchain.cer
+        certchain 1
+    }
+
+    rewrite  {
+        enable 1
+        autoloadhtaccess 1
+        loglevel 0
+    }
+
+    errorlog  {
+        useserver 1
+    }
+
+    index  {
+        useserver 0
+        indexfiles index.html, index.php
+        autoindexuri /_autoindex/default.php
+        autoindex 0
+    }
+}

@@ -10,20 +10,15 @@
 /idt_nuevo/sites/localhost/html/
 /idt_anterior/sites/localhost/html/
 /idt_intranet/sites/localhost/html/
-
+/idt_observatorio/sites/localhost/html/
 #conf files
 
-# Ignorar todo en estas carpetas excepto 99-php.ini
-/idt_nuevo/lsws/conf/*
-!/idt_nuevo/lsws/conf/99-php.ini
-/idt_anterior/lsws/conf/*
-!/idt_anterior/lsws/conf/99-php.ini
-/idt_intranet/lsws/conf/*
-!/idt_intranet/lsws/conf/99-php.ini
+
 
 # Database backups and SQL files
 /idt_nuevo/configuraciones/idtcs360_bddrpl.sql
 backup-*.tar.gz
+*.tar.gz
 *.sql
 *.sql.gz
 *.sql.tar.gz
@@ -54,6 +49,7 @@ error_log
 # Temporary files
 *.tmp
 *.temp
+*.DS_Store
 
 # Prompts and environment variables
 .prompts/

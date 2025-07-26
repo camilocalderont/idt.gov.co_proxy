@@ -161,6 +161,90 @@ services:
       traefik:
         condition: service_started
 
+  # Servicio 4: Sitio anterior IDT (Drupal 8)
+  idt_intranet:
+    image: idartestecnologia/olsdrupal:74
+    platform: linux/amd64
+    container_name: idt_intranet
+    env_file:
+      - .env
+    volumes:
+      - ./idt_intranet/lsws/conf:/usr/local/lsws/conf
+      - ./idt_intranet/lsws/admin-conf:/usr/local/lsws/admin/conf
+      - ./idt_intranet/bin/container:/usr/local/bin
+      - ./idt_intranet/sites:/var/www/vhosts/
+      - ./idt_intranet/acme:/root/.acme.sh/
+      - ./idt_intranet/logs:/usr/local/lsws/logs/
+      # Configuración de PHP
+      - ./idt_intranet/lsws/conf/99-php.ini:/usr/local/lsws/lsphp74/etc/php/7.4/mods-available/99-php.ini:ro
+      - ./idt_intranet/php_sessions:/tmp/php_sessions
+      - ./idt_intranet/logs/php_errors.log:/var/log/php_errors.log
+    ports:
+      #- 80:80
+      #- 443:443
+      #- 443:443/udp
+      - 7083:7080
+    restart: always
+    environment:
+      TZ: ${TZ}
+    networks:
+      - red_idt_gov_co
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.idt_intranet.rule=Host(`intranet.idt.gov.co`)"
+      - "traefik.http.routers.idt_intranet.entrypoints=websecure"
+      - "traefik.http.routers.idt_intranet.tls=true"
+      - "traefik.http.services.idt_intranet.loadbalancer.server.port=80"
+      - "traefik.http.routers.idt_intranet.middlewares=secure-headers@docker"
+      - "traefik.http.middlewares.secure-headers.headers.customrequestheaders.X-Forwarded-Proto=https"
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      traefik:
+        condition: service_started
+
+  # Servicio 2: Nuevo sitio IDT (Drupal 10)
+  idt_observatorio:
+    image: idartestecnologia/olsdrupal:83
+    platform: linux/amd64
+    container_name: idt_observatorio
+    env_file:
+      - .env
+    volumes:
+      - ./idt_observatorio/lsws/conf:/usr/local/lsws/conf
+      - ./idt_observatorio/lsws/admin-conf:/usr/local/lsws/admin/conf
+      - ./idt_observatorio/bin/container:/usr/local/bin
+      - ./idt_observatorio/sites:/var/www/vhosts/
+      - ./idt_observatorio/acme:/root/.acme.sh/
+      - ./idt_observatorio/logs:/usr/local/lsws/logs/
+      # Configuración de PHP
+      - ./idt_observatorio/lsws/conf/99-php.ini:/usr/local/lsws/lsphp83/etc/php/8.3/mods-available/99-php.ini:ro
+      - ./idt_observatorio/php_sessions:/tmp/php_sessions
+      - ./idt_observatorio/logs/php_errors.log:/var/log/php_errors.log
+    ports:
+      #- 80:80
+      #- 443:443
+      #- 443:443/udp
+      - 7084:7080
+    restart: always
+    environment:
+      TZ: ${TZ}
+    networks:
+      - red_idt_gov_co
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.idt_observatorio.rule=Host(`observatorio.idt.gov.co`)"
+      - "traefik.http.routers.idt_observatorio.entrypoints=websecure"
+      - "traefik.http.routers.idt_observatorio.tls=true"
+      - "traefik.http.services.idt_observatorio.loadbalancer.server.port=80"
+      - "traefik.http.routers.idt_observatorio.middlewares=secure-headers@docker"
+      - "traefik.http.middlewares.secure-headers.headers.customrequestheaders.X-Forwarded-Proto=https"
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      traefik:
+        condition: service_started
+
 # Definición de volúmenes
 volumes:
   mariadb_data:
